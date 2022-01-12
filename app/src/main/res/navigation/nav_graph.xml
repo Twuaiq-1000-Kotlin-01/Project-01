@@ -19,10 +19,21 @@
         android:id="@+id/loginFragment"
         android:name="sa.edu.tuwaiq.project_01.views.identity.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_timeLineFragment"
+            app:destination="@id/timeLineFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="sa.edu.tuwaiq.project_01.views.identity.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

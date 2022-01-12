@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import sa.edu.tuwaiq.project_01.databinding.ActivityMainBinding
+import sa.edu.tuwaiq.project_01.util.BottomAppBarHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initialize the bottom app helper to allow hiding/showing it on specific fragments
+        BottomAppBarHelper.init(this)
 
         /* This line is to hide the shadow for the bottom nav view. The shadow will still appear
           in the xml, but it will disappear when we run the app */
