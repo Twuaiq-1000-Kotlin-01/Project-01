@@ -1,4 +1,4 @@
-package com.shahad.instic
+package com.shahad.instic.ui.home
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.shahad.instic.R
 import com.shahad.instic.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

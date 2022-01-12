@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "570367059906",
+    "project_id": "instic-5f862",
+    "storage_bucket": "instic-5f862.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570367059906:android:758317058c659b9e7e985b",
+        "android_client_info": {
+          "package_name": "com.shahad.instic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570367059906-l2sklbjot2d3fd3jn9cnqed9u5cllspu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJTIRXyvdlJyHQDohXejHicpubeEEdn3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570367059906-l2sklbjot2d3fd3jn9cnqed9u5cllspu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

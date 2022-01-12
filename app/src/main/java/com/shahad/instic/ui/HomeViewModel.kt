@@ -1,4 +1,4 @@
-package com.shahad.instic.ui.home
+package com.shahad.instic.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

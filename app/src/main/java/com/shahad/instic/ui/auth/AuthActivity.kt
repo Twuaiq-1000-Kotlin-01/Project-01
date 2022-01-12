@@ -1,0 +1,12 @@
+package com.shahad.instic.ui.auth
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.shahad.instic.R
+
+class AuthActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_auth)
+    }
+}
