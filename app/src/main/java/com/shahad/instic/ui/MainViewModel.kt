@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
 	
 	fun newPost(text: String, imagePath: String?) = Completable.create { emitter ->
 		val randomUuid = UUID.randomUUID().toString()
-		val post = Post(uId, text, randomUuid)
+		val post = Post(uId, auth.currentUser!!.displayName.toString(), text, randomUuid)
 		viewModelScope.launch {
 			withContext(Dispatchers.IO) {
 				collection.document().set(post).addOnCompleteListener { task ->

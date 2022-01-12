@@ -4,6 +4,7 @@ import com.google.firebase.Timestamp
 
 data class Post(
     val uid: String = "",
+    val username:String="",
     val text: String = "",
     val imagePath: String = "",
     val date: Timestamp = Timestamp.now()
