@@ -38,6 +38,7 @@ class PostFragment : Fragment() {
 				.onResult {
 					val file = it.first()
 					imagePath = file.path
+					binding.attachMediaButton.text = "Attach (1)"
 				}
 				.onCancel {
 					Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
@@ -76,9 +77,15 @@ class PostFragment : Fragment() {
 	
 	private fun onPostCreated() = with(binding) {
 		postButton.isEnabled = true
-		attachMediaButton.isEnabled = true
+		attachMediaButton.apply {
+			isEnabled = true
+			text = "Attach"
+		}
 		progressBar.visibility = View.GONE
-		postContentEditText.text.clear()
+		postContentEditText.apply {
+			isEnabled = true
+			text.clear()
+		}
 		imagePath = null
 	}
 	

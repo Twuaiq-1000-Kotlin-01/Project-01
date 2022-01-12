@@ -11,7 +11,8 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.shahad.instic.ui.model.Post
 import io.reactivex.Completable
-import io.reactivex.CompletableEmitter
+import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,40 +20,58 @@ import java.io.File
 import java.util.*
 
 class MainViewModel : ViewModel() {
+	val disposables = CompositeDisposable()
 	private val auth = FirebaseAuth.getInstance()
 	private val db = FirebaseFirestore.getInstance()
 	private val uId = auth.currentUser!!.uid
 	private val collection = db.collection("post")
 	private var postsList = mutableListOf<Post>()
 	
-	fun newPost(text: String, imagePath: String?) = Completable.create { emitter ->
+	fun newPost(content: String, imagePath: String?) = Completable.create { emitter ->
 		val randomUuid = UUID.randomUUID().toString()
-		val post = Post(uId, auth.currentUser!!.displayName.toString(), text, randomUuid)
-		viewModelScope.launch {
-			withContext(Dispatchers.IO) {
-				collection.document().set(post).addOnCompleteListener { task ->
-					if (task.isSuccessful) {
-						if (imagePath != null) {
-							uploadImage(imagePath, randomUuid, emitter)
-						} else {
-							emitter.onComplete()
+		val displayName = auth.currentUser!!.displayName.toString()
+		val post = Post(randomUuid, displayName, content, imagePath)
+		
+		val disposable = uploadImage(imagePath, randomUuid)
+			.subscribe({
+				post.imagePath = it
+				viewModelScope.launch {
+					withContext(Dispatchers.IO) {
+						collection.document().set(post).addOnCompleteListener { task ->
+							if (task.isSuccessful) {
+								Log.i("MainViewModel", "newPost: success")
+								emitter.onComplete()
+							} else {
+								emitter.onError(task.exception!!)
+								Log.e("MainViewModel", "newPost: ${task.exception!!.message}", task.exception)
+							}
 						}
-					} else {
-						Log.e("newPost failed", task.exception?.message.toString())
 					}
 				}
-			}
-		}
+			}, {
+				emitter.onError(it)
+				Log.e("MainViewModel", "newPost: ${it.message}", it)
+			})
+		
+		disposables.add(disposable)
 	}
 	
-	private fun uploadImage(path: String, uuid: String, emitter: CompletableEmitter) {
+	private fun uploadImage(path: String?, uuid: String) = Observable.create<String> { emitter ->
+		if (path == null) {
+			Log.i("MainViewModel", "uploadImage: no image")
+			emitter.onNext("")
+			emitter.onComplete()
+			return@create
+		}
+		
 		val storage = FirebaseStorage.getInstance()
 		val storageRef = storage.reference
 		val imageRef = storageRef.child("uploads/$uuid")
 		val uri = File(path).toUri()
 		imageRef.putFile(uri)
 			.addOnSuccessListener {
-				Log.i("MainViewModel", "uploadImage: Uploaded $uuid")
+				Log.i("MainViewModel", "uploadImage: Uploaded $uuid [url: ${imageRef.downloadUrl}]")
+				emitter.onNext(imageRef.downloadUrl.toString())
 				emitter.onComplete()
 			}
 			.addOnFailureListener {
@@ -87,5 +106,10 @@ class MainViewModel : ViewModel() {
 			}
 		}
 		return livePostsList
+	}
+	
+	override fun onCleared() {
+		super.onCleared()
+		disposables.dispose()
 	}
 }
