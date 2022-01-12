@@ -18,7 +18,7 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
         
-        supportActionBar!!.hide()
+      //supportActionBar!!.hide()
     }
     
     fun navigateTo(fragment: Fragment) {

@@ -1,5 +1,8 @@
 package com.shahad.instic.ui
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -8,7 +11,17 @@ import io.reactivex.Completable
 class InsticViewModel : ViewModel() {
 	
 	private val firebaseAuth = FirebaseAuth.getInstance()
-	
+
+	fun checkConnection(context: Context): Boolean {
+		val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+		val network = connectivityManager.activeNetwork ?: return false
+		val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+		return when {
+			activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+			else -> false
+		}
+	}
+
 	fun login(email: String, password: String) = Completable.create { emitter ->
 		firebaseAuth
 			.signInWithEmailAndPassword(email, password)

@@ -29,7 +29,9 @@ class SignupFragment : Fragment() {
 		
 		with(binding) {
 			registerButton.setOnClickListener {
-				val disposable = viewModel.register(
+				if (viewModel.checkConnection(requireContext())) {
+
+					val disposable = viewModel.register(
 					emailAddressEditText.text.toString(),
 					displaynameEditText.text.toString(),
 					passwordEditText.text.toString()
@@ -45,6 +47,10 @@ class SignupFragment : Fragment() {
 					})
 				
 				disposables.add(disposable)
+			} else {
+					Toast.makeText(requireContext(), "No Internet Connect", Toast.LENGTH_SHORT)
+						.show()
+				}
 			}
 			
 			signupTextView.setOnClickListener {

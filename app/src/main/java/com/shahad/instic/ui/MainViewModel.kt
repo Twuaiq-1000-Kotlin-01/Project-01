@@ -23,7 +23,7 @@ class MainViewModel : ViewModel() {
 	val disposables = CompositeDisposable()
 	private val auth = FirebaseAuth.getInstance()
 	private val db = FirebaseFirestore.getInstance()
-	private val uId = auth.currentUser!!.uid
+//	private val uId = auth.currentUser?.uid
 	private val collection = db.collection("post")
 	private var postsList = mutableListOf<Post>()
 	
