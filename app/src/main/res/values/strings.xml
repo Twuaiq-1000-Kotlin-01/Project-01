@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ProjectOne</string>
+    <string name="social_app">Social App</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_here"><u>Register Here</u></string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="registration_page">Registration Page</string>
+    <string name="enter_your_information">Enter your information</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login_here"><u>Login Here</u></string>
+    <string name="home">Home</string>
+    <string name="add_post">Add Post</string>
+    <string name="profile">Profile</string>
+</resources>

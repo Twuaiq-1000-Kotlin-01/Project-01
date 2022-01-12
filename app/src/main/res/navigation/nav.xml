@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/timeLineFragment2">
+
+    <fragment
+        android:id="@+id/timeLineFragment2"
+        android:name="com.tuwaiq.projectone.TimeLineFragment.TimeLineFragment"
+        android:label="time_line_fragment"
+        tools:layout="@layout/time_line_fragment" />
+    <fragment
+        android:id="@+id/addPostFragment2"
+        android:name="com.tuwaiq.projectone.AddPostFragment.AddPostFragment"
+        android:label="add_post_fragment"
+        tools:layout="@layout/add_post_fragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tuwaiq.projectone.LoginFragment.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_timeLineFragment2"
+            app:destination="@id/timeLineFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.tuwaiq.projectone.RegisterFragment.RegisterFragment"
+        android:label="register_fragment"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.tuwaiq.projectone.ProfileFragment.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+</navigation>
