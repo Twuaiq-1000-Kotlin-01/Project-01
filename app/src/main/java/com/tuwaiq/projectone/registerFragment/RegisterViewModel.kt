@@ -2,7 +2,7 @@ package com.tuwaiq.projectone.registerFragment
 
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
-import com.tuwaiq.projectone.Repo.Repo
+import com.tuwaiq.projectone.repo.Repo
 
 class RegisterViewModel : ViewModel() {
 

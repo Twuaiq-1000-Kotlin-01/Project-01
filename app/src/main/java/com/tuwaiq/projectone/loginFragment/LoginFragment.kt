@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
         val currentUser = FirebaseAuth.getInstance().currentUser
 
         if (currentUser != null) {
-            //findNavController().navigate(R.id.action_loginFragment_to_timeLineFragment2)
+            findNavController().navigate(R.id.action_loginFragment_to_timeLineFragment2)
         }
 
         binding.registerHereTv.setOnClickListener {

@@ -38,7 +38,11 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="com.tuwaiq.projectone.ProfileFragment.ProfileFragment"
+        android:name="com.tuwaiq.projectone.profileFragment.ProfileFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profileFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
