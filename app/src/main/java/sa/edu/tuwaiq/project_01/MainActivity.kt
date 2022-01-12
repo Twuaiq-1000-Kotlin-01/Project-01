@@ -2,10 +2,17 @@ package sa.edu.tuwaiq.project_01
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import sa.edu.tuwaiq.project_01.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityMainBinding
+    lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -19,5 +26,19 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.menu.getItem(1).isEnabled = false
 
 
+        // Navigation
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navHostFragment.navController
+
+        setupActionBarWithNavController(navController)
+
+        // to link the nav bottom with nav host
+        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
+    }
+
+    // To activate the back button functionality
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
