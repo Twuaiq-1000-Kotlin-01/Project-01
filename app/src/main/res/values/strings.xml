@@ -17,4 +17,6 @@
     <string name="home">Home</string>
     <string name="add_post">Add Post</string>
     <string name="profile">Profile</string>
+    <string name="post">Post</string>
+    <string name="what_s_happening">What\'s happening?</string>
 </resources>

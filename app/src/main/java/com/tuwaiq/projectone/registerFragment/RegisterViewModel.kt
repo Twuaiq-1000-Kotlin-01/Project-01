@@ -1,4 +1,4 @@
-package com.tuwaiq.projectone.RegisterFragment
+package com.tuwaiq.projectone.registerFragment
 
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController

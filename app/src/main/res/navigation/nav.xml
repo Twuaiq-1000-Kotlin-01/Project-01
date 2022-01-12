@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.tuwaiq.projectone.RegisterFragment.RegisterFragment"
+        android:name="com.tuwaiq.projectone.registerFragment.RegisterFragment"
         android:label="register_fragment"
         tools:layout="@layout/register_fragment">
         <action
