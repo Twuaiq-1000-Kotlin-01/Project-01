@@ -19,7 +19,7 @@ class MainViewModel : ViewModel() {
     private var postsList = mutableListOf<Post>()
 
     fun newPost(text: String, imagePath: String) {
-        val post = Post(uId, text, imagePath)
+        val post = Post(uId,auth.currentUser!!.displayName.toString(), text, imagePath)
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 collection.document().set(post).addOnCompleteListener { task ->

@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/drawable/user_circle_shape.xml" value="0.2203125" />
+        <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/fragment_post.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/fragment_signup.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vip/Desktop/android_projects/Instic/app/src/main/res/layout/recyclerview_item.xml" value="0.33" />
       </map>
     </option>
   </component>
