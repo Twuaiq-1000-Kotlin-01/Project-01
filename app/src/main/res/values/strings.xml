@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Project-01</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_greeting">Hello  againe 👋🏽</string>
+    <string name="login_user_msg">Let\'s start a new jorney with Postly</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="login">Login</string>
+    <string name="question_dont_have_account">Don\'t Have an Account?</string>
+    <string name="register">Sign up</string>
+    <string name="register_user_msg">Join us in Postly and check what\'s new!</string>
+    <string name="register_greeting">Welcome to Postly</string>
+    <string name="register_full_name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="question_already_have_account">Already Have an Account?</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
 </resources>
