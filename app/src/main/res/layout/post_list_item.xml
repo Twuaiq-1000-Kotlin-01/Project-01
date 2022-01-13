@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="postInfo"
+            type="com.tuwaiq.projectone.model.Post" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:padding="10dp">
+    android:paddingEnd="10dp"
+    android:paddingStart="10dp">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/tl_user_photo_iv"
-        android:layout_width="57dp"
-        android:layout_height="59dp"
+        android:layout_width="67dp"
+        android:layout_height="69dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_manage_accounts_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,16 +30,33 @@
         app:riv_border_width="2dip"
         app:riv_corner_radius="30dip"
         app:riv_mutate_background="true"
-        app:riv_oval="true"
-        app:riv_tile_mode="repeat" />
+        app:riv_oval="true" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/tl_post_photo_iv"
+        android:layout_width="87dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baseline_manage_accounts_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_post_tv"
+        android:visibility="gone"
+        app:riv_border_color="@color/dark_blue"
+        app:riv_border_width="2dip"
+        app:riv_corner_radius="20dip"
+        />
 
     <TextView
         android:id="@+id/tl_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
-        android:text="hi"
+        android:text="@{postInfo.postOwnerName}"
+        android:textStyle="bold"
+        android:textColor="@color/jet"
         app:layout_constraintStart_toEndOf="@id/tl_user_photo_iv"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,20 +64,62 @@
         android:id="@+id/tl_username_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:text="hi"
-        android:textColor="@color/gray"
-        app:layout_constraintStart_toEndOf="@id/tl_user_photo_iv"
-        app:layout_constraintTop_toBottomOf="@id/tl_name_tv" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="@{`@`+postInfo.postOwnerUserName}"
+        android:textColor="@color/beige"
+        app:layout_constraintStart_toEndOf="@id/tl_name_tv"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tl_post_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="20dp"
-        android:text="This is my post"
+        android:text="@{postInfo.postContent}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tl_username_tv" />
 
+    <ImageView
+        android:id="@+id/btn_likePost"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/heart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <ImageView
+        android:id="@+id/btn_sharePost"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_post_photo_iv"
+        tools:layout_editor_absoluteY="114dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

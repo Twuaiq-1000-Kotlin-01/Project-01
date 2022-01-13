@@ -9,20 +9,17 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/profile_user_photo_iv"
-        android:layout_width="101dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="44dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_baseline_manage_accounts_24"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/ic_baseline_manage_accounts_24"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:riv_border_color="@color/dark_blue"
         app:riv_border_width="2dip"
-        app:riv_corner_radius="30dip"
-        app:riv_mutate_background="true"
-        app:riv_oval="true"
-        app:riv_tile_mode="repeat" />
+        app:riv_corner_radius="30dip" />
 
     <ImageButton
         android:id="@+id/logout_ib"
@@ -101,6 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
+        android:textColor="@color/beige"
         app:layout_constraintStart_toEndOf="@id/calendar_iv"
         app:layout_constraintTop_toBottomOf="@id/bio_et" />
 
@@ -109,10 +107,19 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/dark_blue"
         android:background="?android:attr/listDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calendar_iv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_time_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,10 @@
 package com.tuwaiq.projectone.loginFragment
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +15,16 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.tuwaiq.projectone.R
 import com.tuwaiq.projectone.databinding.LoginFragmentBinding
+import android.widget.LinearLayout
 
+import com.tuwaiq.projectone.MainActivity
+
+import android.widget.EditText
+
+
+
+
+private const val TAG = "LoginFragment"
 class LoginFragment : Fragment() {
 
     private var _binding: LoginFragmentBinding? = null
@@ -41,6 +53,35 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
+        binding.forgotPassword.setOnClickListener {
+
+        val input = EditText(context)
+        val lp = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.MATCH_PARENT
+        )
+        input.layoutParams = lp
+            input.hint = resources.getString(R.string.email)
+
+        AlertDialog.Builder(context)
+            .setMessage("Enter your email to reset your password")
+            .setView(input)
+            .setPositiveButton("Confirm", DialogInterface.OnClickListener { dialogInterface, i ->
+                FirebaseAuth.getInstance()
+                    .sendPasswordResetEmail(input.text.toString())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Log.d(TAG, "email sent")
+                        }
+                    }
+            }
+            )
+            .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface.dismiss()
+            })
+            .create().show()
+
+            }
         binding.loginBtn.setOnClickListener {
             val email = binding.loginEmailTv.text.toString()
             val password = binding.loginPasswordTv.text.toString()

@@ -12,6 +12,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav" />
 
@@ -25,6 +26,7 @@
         app:itemRippleColor="@color/dark_blue"
         app:itemIconTint="@color/light_blue"
         app:itemTextColor="@color/light_blue"
+        app:itemIconSize="25dp"
         />
 
 

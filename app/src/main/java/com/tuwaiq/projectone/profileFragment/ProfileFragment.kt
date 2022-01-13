@@ -22,14 +22,27 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import android.content.Intent
+import android.net.Uri
+
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.tuwaiq.projectone.model.Post
+import com.tuwaiq.projectone.timeLineFragment.TimeLineAdapter
+
 
 private const val TAG = "ProfileFragment"
+private const val PICK_IMAGE = 1
 class ProfileFragment : Fragment() {
 
     private var _binding: ProfileFragmentBinding? = null
     private val binding get() = _binding!!
 
     private val profileViewModel by lazy { ViewModelProvider(this).get(ProfileViewModel::class.java) }
+
+    private var uri: Uri = Uri.EMPTY
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +57,12 @@ class ProfileFragment : Fragment() {
 
         lifecycleScope.launch {
             userInfo()
+        }
+
+        binding.userTimeLine.layoutManager = LinearLayoutManager(requireContext())
+
+        lifecycleScope.launch {
+            updateUI()
         }
 
         binding.bioEt.setOnClickListener {
@@ -68,6 +87,13 @@ class ProfileFragment : Fragment() {
             profileViewModel.addBio(binding.bioEt.text.toString())
         }
 
+        binding.profileUserPhotoIv.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE)
+        }
+
         binding.logoutIb.setOnClickListener {
             val dialog = AlertDialog.Builder(context)
             dialog.setMessage("Are you sure you want to logout?")
@@ -82,16 +108,44 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private suspend fun userInfo() {
-        binding.profileNameTv.text = profileViewModel.name()
-        binding.profileUsernameTv.text = "@ ${profileViewModel.username()}"
-        binding.bioEt.setBackgroundResource(android.R.color.transparent)
-        binding.bioEt.setText(profileViewModel.getBio())
-        var spf = SimpleDateFormat("E LLL dd hh:mm:ss z yyyy")
-        val parsed = spf.parse(profileViewModel.date())
-        spf = SimpleDateFormat("LLLL, yyyy")
-        val formatted = spf.format(parsed)
-        binding.joinedDateTv.text = "Joined $formatted"
+    private fun userInfo() {
+        profileViewModel.userInfo().onEach {
+            Glide.with(requireContext())
+                .load(it.profilePhoto)
+                .into(binding.profileUserPhotoIv)
+            binding.profileNameTv.text = it.name
+            binding.profileUsernameTv.text = "@ ${it.username}"
+            binding.bioEt.setBackgroundResource(android.R.color.transparent)
+            binding.bioEt.setText(it.bio)
+            var spf = SimpleDateFormat("E LLL dd hh:mm:ss z yyyy")
+            val parsed = spf.parse(it.date.toString())
+            spf = SimpleDateFormat("LLLL, yyyy")
+            val formatted = spf.format(parsed)
+            binding.joinedDateTv.text = "Joined $formatted"
+        }.launchIn(lifecycleScope)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE) {
+
+            uri = data?.data as Uri
+            binding.profileUserPhotoIv.setImageURI(uri)
+            profileViewModel.uploadPhoto(uri)
+            //profileViewModel.addProfilePhoto()
+        }
+    }
+
+    private suspend fun updateUI(){
+        profileViewModel.getAllPosts().onEach {
+            val a = it.filter {post ->
+                post.postOwnerID == FirebaseAuth.getInstance().currentUser?.uid
+            }
+            binding.userTimeLine.adapter = ProfileAdapter(a as MutableList<Post>)
+            Log.d(TAG, "list: $a")
+
+        }.launchIn(lifecycleScope)
     }
 
     override fun onDestroyView() {

@@ -1,32 +1,54 @@
-package com.tuwaiq.projectone.TimeLineFragment
+package com.tuwaiq.projectone.timeLineFragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.tuwaiq.projectone.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.tuwaiq.projectone.databinding.TimeLineFragmentBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 class TimeLineFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TimeLineFragment()
-    }
+    private var _binding: TimeLineFragmentBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var viewModel: TimeLineViewModel
+    private val viewModel by lazy { ViewModelProvider(this).get(TimeLineViewModel::class.java)}
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.time_line_fragment, container, false)
+
+        _binding = TimeLineFragmentBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TimeLineViewModel::class.java)
-        // TODO: Use the ViewModel
+    suspend fun updateUI(){
+        viewModel.getAllPosts().onEach {list->
+            viewModel.getUserInfo().onEach { user->
+                binding.RVTimeLine.adapter = TimeLineAdapter(list,viewModel,lifecycleScope,requireContext(),user)
+
+            }.launchIn(lifecycleScope)
+        }.launchIn(lifecycleScope)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        binding.RVTimeLine.layoutManager = LinearLayoutManager(requireContext())
+
+        lifecycleScope.launch(context = Dispatchers.IO){
+            updateUI()
+        }
     }
 
 }

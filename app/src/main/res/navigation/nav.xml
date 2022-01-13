@@ -7,14 +7,18 @@
 
     <fragment
         android:id="@+id/timeLineFragment2"
-        android:name="com.tuwaiq.projectone.TimeLineFragment.TimeLineFragment"
+        android:name="com.tuwaiq.projectone.timeLineFragment.TimeLineFragment"
         android:label="time_line_fragment"
         tools:layout="@layout/time_line_fragment" />
     <fragment
         android:id="@+id/addPostFragment2"
-        android:name="com.tuwaiq.projectone.AddPostFragment.AddPostFragment"
+        android:name="com.tuwaiq.projectone.addPostFragment.AddPostFragment"
         android:label="add_post_fragment"
-        tools:layout="@layout/add_post_fragment" />
+        tools:layout="@layout/add_post_fragment" >
+        <action
+            android:id="@+id/action_addPostFragment2_to_timeLineFragment2"
+            app:destination="@id/timeLineFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.tuwaiq.projectone.loginFragment.LoginFragment"

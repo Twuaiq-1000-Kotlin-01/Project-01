@@ -7,5 +7,8 @@ data class User(
     var username: String = "",
     var email: String = "",
     var bio: String = "",
-    var date: Date = Date()
+    var date: Date = Date(),
+    var profilePhoto:String="",
+    var likes:MutableList<String> =mutableListOf(),
+    var posts:MutableList<String> =mutableListOf()
 )
