@@ -9,7 +9,7 @@ import com.tuwaiq.rr.domain.repos.AuthRepo
 
 private lateinit var auth: FirebaseAuth
 private const val TAG = "AuthRepoImpl"
-var completed = false
+
 class AuthRepoImpl: AuthRepo {
     override fun signup(email: String, password: String) {
 
@@ -19,7 +19,6 @@ class AuthRepoImpl: AuthRepo {
                 if (task.isSuccessful){
                     Log.d(TAG, "createUserWithEmail:success")
 
-                    completed = true
                 }else{
                     Log.e(TAG,"something goose wrong")
                 }

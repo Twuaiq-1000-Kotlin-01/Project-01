@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.tuwaiq.rr.R
 import com.tuwaiq.rr.databinding.ActivityMainBinding
 import com.tuwaiq.rr.databinding.LoginFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -28,8 +30,12 @@ class LoginFragment : Fragment() {
         binding.loginButton.setOnClickListener {
             val email = binding.emailInputEditText.text.toString()
             val password = binding.passwordInputEditText.text.toString()
-            viewModel.login(email,password)
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            GlobalScope.async(Dispatchers.Main) {
+                viewModel.login(email,password)
+                delay(1300)
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+
         }
 
         binding.signUpText.setOnClickListener {

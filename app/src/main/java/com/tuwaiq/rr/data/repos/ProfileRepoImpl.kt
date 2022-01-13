@@ -28,6 +28,7 @@ class ProfileRepoImpl : ProfileRepo {
         if (!users.isNullOrEmpty()){
             user = users.first()
         }
+        Log.e(TAG,"$user")
         return user
     }
 }
