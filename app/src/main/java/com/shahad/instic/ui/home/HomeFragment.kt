@@ -32,11 +32,10 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.getPosts().observe(viewLifecycleOwner, {
+        viewModel.getPosts().observe(viewLifecycleOwner) {
             recyclerview.adapter = PostAdapter(it)
-
-        })
-
+        }
+    
         return root
     }
 

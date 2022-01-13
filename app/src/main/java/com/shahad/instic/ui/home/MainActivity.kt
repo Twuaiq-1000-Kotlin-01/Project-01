@@ -2,6 +2,7 @@ package com.shahad.instic.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (FirebaseAuth.getInstance().currentUser == null) {
+            Toast.makeText(this, "You are not logged in!", Toast.LENGTH_SHORT).show()
             Intent(this, AuthActivity::class.java).also { startActivity(it) }
             finish()
         }
