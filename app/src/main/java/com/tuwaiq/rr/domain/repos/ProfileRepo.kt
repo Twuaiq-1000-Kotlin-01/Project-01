@@ -1,7 +1,7 @@
 package com.tuwaiq.rr.domain.repos
 
-import android.service.autofill.UserData
 import com.tuwaiq.rr.data.remote.UserDataDto
+import com.tuwaiq.rr.domain.models.UserData
 
 interface ProfileRepo {
 

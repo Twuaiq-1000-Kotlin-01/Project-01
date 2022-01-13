@@ -1,7 +1,7 @@
 package com.tuwaiq.rr.domain.usecases.profileUsecases
 
-import android.service.autofill.UserData
-import com.tuwaiq.rr.domain.repos.PostRepo
+
+import com.tuwaiq.rr.domain.models.UserData
 import com.tuwaiq.rr.domain.repos.ProfileRepo
 import javax.inject.Inject
 
