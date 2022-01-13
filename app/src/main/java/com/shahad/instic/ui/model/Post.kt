@@ -7,5 +7,6 @@ data class Post(
     val username:String="",
     val text: String = "",
     var imagePath: String? = null,
+    val postId:String="",
     val date: Timestamp = Timestamp.now()
 )

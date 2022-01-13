@@ -1,5 +1,6 @@
 package com.shahad.instic.ui.home
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shahad.instic.databinding.FragmentHomeBinding
 import com.shahad.instic.ui.MainViewModel
+
 
 class HomeFragment : Fragment() {
 
@@ -33,11 +35,12 @@ class HomeFragment : Fragment() {
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.getPosts().observe(viewLifecycleOwner) {
-            recyclerview.adapter = PostAdapter(it)
+            recyclerview.adapter = PostAdapter(it, requireActivity() as MainActivity, viewModel)
         }
-    
+
         return root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
