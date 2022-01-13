@@ -9,4 +9,8 @@ interface PostRepo {
 
     suspend fun addPost(postData: PostData)
 
+    suspend fun getPost():List<PostDataDto>
+
+    fun uploadImgToStorage(filename:String,uri: Uri):LiveData<String>
+
 }
