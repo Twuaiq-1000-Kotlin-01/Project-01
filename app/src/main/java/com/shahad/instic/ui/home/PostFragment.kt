@@ -35,6 +35,10 @@ class PostFragment : Fragment() {
             Album.album(this)
                 .singleChoice()
                 .camera(true)
+                .filterMimeType {
+                    it.equals("jpeg", true) || it.equals("png", true)
+                }
+                .afterFilterVisibility(true)
                 .onResult {
                     val file = it.first()
                     imagePath = file.path
