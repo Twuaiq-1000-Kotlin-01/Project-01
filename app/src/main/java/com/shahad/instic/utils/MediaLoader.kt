@@ -1,4 +1,4 @@
-package com.shahad.instic.ui
+package com.shahad.instic.utils
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

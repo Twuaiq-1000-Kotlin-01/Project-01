@@ -3,6 +3,7 @@ package com.shahad.instic.ui
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -11,9 +12,10 @@ import io.reactivex.Completable
 class InsticViewModel : ViewModel() {
 	
 	private val firebaseAuth = FirebaseAuth.getInstance()
-
+	
 	fun checkConnection(context: Context): Boolean {
-		val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+		val connectivityManager =
+			context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 		val network = connectivityManager.activeNetwork ?: return false
 		val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
 		return when {
@@ -21,7 +23,7 @@ class InsticViewModel : ViewModel() {
 			else -> false
 		}
 	}
-
+	
 	fun login(email: String, password: String) = Completable.create { emitter ->
 		firebaseAuth
 			.signInWithEmailAndPassword(email, password)
@@ -50,10 +52,14 @@ class InsticViewModel : ViewModel() {
 				}
 		}
 	
-	private fun updateUserProfile(displayname: String) {
+	fun updateUserProfile(
+		displayname: String = getCurrentUser()!!.displayName ?: "",
+		photoUri: Uri? = null
+	) {
 		getCurrentUser()?.updateProfile(
 			UserProfileChangeRequest.Builder()
 				.setDisplayName(displayname)
+				.setPhotoUri(photoUri)
 				.build()
 		)
 	}

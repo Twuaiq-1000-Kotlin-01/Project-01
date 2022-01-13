@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.shahad.instic.databinding.FragmentPostBinding
 import com.shahad.instic.ui.MainViewModel
-import com.shahad.instic.ui.MediaLoader
+import com.shahad.instic.utils.MediaLoader
+import com.shahad.instic.utils.initializeAlbumLib
 import com.yanzhenjie.album.Album
 import com.yanzhenjie.album.AlbumConfig
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -29,7 +30,7 @@ class PostFragment : Fragment() {
     ): View {
         binding = FragmentPostBinding.inflate(inflater, container, false)
 
-        initializeAlbumLib()
+        initializeAlbumLib(requireContext())
 
         binding.attachMediaButton.setOnClickListener {
             Album.album(this)
@@ -69,14 +70,6 @@ class PostFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    private fun initializeAlbumLib() {
-        Album.initialize(
-            AlbumConfig.newBuilder(requireContext())
-                .setAlbumLoader(MediaLoader())
-                .build()
-        )
     }
 
     private fun onPostCreated() = with(binding) {
