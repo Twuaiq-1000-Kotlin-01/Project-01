@@ -7,6 +7,25 @@
     tools:context=".presentation.profile.ProfileFragment"
     android:id="@+id/profileFragment">
 
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RR Project"
+        android:textColor="@color/green1"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_logout"
+        android:background="@android:color/transparent"/>
+
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"

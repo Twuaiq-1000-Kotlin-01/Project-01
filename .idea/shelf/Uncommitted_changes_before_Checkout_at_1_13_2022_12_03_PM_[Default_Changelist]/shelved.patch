@@ -1,0 +1,1435 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'kotlin-android'\r\n    id 'kotlin-kapt'\r\n    id 'dagger.hilt.android.plugin'\r\n}\r\n\r\nkapt {\r\n    correctErrorTypes true\r\n}\r\n\r\n\r\n\r\nandroid {\r\n    compileSdk 31\r\n\r\n    defaultConfig {\r\n        applicationId \"com.tuwaiq.rr\"\r\n        minSdk 30\r\n        targetSdk 31\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    viewBinding{\r\n        enabled = true\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.7.0'\r\n    implementation 'androidx.appcompat:appcompat:1.4.0'\r\n    implementation 'com.google.android.material:material:1.4.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'\r\n    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'\r\n    testImplementation 'junit:junit:4.+'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n\r\n    // Coroutine Lifecycle Scopes\r\n    implementation \"androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0\"\r\n    implementation \"androidx.lifecycle:lifecycle-runtime-ktx:2.4.0\"\r\n\r\n\r\n    //Dagger - Hilt\r\n    implementation 'com.google.dagger:hilt-android:2.40.5'\r\n    kapt 'com.google.dagger:hilt-compiler:2.40.5'\r\n    implementation \"androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03\"\r\n    kapt \"androidx.hilt:hilt-compiler:1.0.0\"\r\n\r\n    // Activity KTX for viewModels()\r\n    implementation \"androidx.activity:activity-ktx:1.4.0\"\r\n\r\n    //material\r\n    implementation \"com.google.android.material:material:1.6.0-alpha01\"\r\n\r\n    //Circle imageview\r\n    implementation 'de.hdodenhof:circleimageview:3.1.0'\r\n\r\n    //Camera and image picker\r\n    implementation 'com.sandrios.android:sandriosCamera:1.2.6'\r\n\r\n    //Glide\r\n    implementation 'com.github.bumptech.glide:glide:4.12.0'\r\n    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'\r\n\r\n    //Floating action button\r\n    implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/build.gradle	(date 1642013286638)
+@@ -16,7 +16,7 @@
+ 
+     defaultConfig {
+         applicationId "com.tuwaiq.rr"
+-        minSdk 30
++        minSdk 29
+         targetSdk 31
+         versionCode 1
+         versionName "1.0"
+@@ -86,4 +86,8 @@
+     //Floating action button
+     implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+ 
++    //nav_graph
++    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
++    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
++
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/login_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.LoginFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/login_fragment.xml b/app/src/main/res/layout/login_fragment.xml
+--- a/app/src/main/res/layout/login_fragment.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/layout/login_fragment.xml	(date 1642062988926)
+@@ -1,13 +1,121 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".presentation.LoginFragment">
++    tools:context=".presentation.auth.LoginFragment">
+ 
+     <TextView
++        android:id="@+id/appName"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="80dp"
++        android:text="RR Project"
++        android:textColor="@color/green1"
++        android:textSize="40sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/emailInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:text="Hello" />
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="35dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Email"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/appName"
++        app:startIconDrawable="@drawable/ic_person">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/emailInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/passwordInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Password"
++        app:endIconMode="password_toggle"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout"
++        app:startIconDrawable="@drawable/ic_lock">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/passwordInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:inputType="textPassword" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <Button
++        android:id="@+id/loginButton"
++        style="?attr/materialButtonOutlinedStyle"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="25dp"
++        android:layout_marginEnd="35dp"
++        android:text="Log in"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
+ 
+-</FrameLayout>
+\ No newline at end of file
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="45dp"
++        android:text="Forgot Password?"
++        android:textColor="@color/green1"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
++
++    <View
++        android:layout_width="match_parent"
++        android:layout_height="2dp"
++        android:layout_marginBottom="25dp"
++        android:background="@color/gray"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="25dp"
++        android:gravity="center_vertical"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent">
++
++        <TextView
++            android:id="@+id/DoNotHaveAnAccount"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Don't have an account?"
++            android:textSize="20sp" />
++
++        <TextView
++            android:id="@+id/signUpText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="10dp"
++            android:clickable="true"
++            android:text="Sign Up."
++            android:textColor="@color/green1"
++            android:textSize="20sp" />
++    </LinearLayout>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/profile_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.profile.ProfileFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/profile_fragment.xml b/app/src/main/res/layout/profile_fragment.xml
+--- a/app/src/main/res/layout/profile_fragment.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/layout/profile_fragment.xml	(date 1642062576568)
+@@ -1,13 +1,55 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".presentation.profile.ProfileFragment">
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    tools:context=".presentation.profile.ProfileFragment"
++    android:id="@+id/profileFragment">
+ 
+-    <TextView
++    <View
++        android:id="@+id/line"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:text="Hello" />
++        android:layout_height="2dp"
++        android:layout_marginBottom="25dp"
++        android:layout_marginTop="60dp"
++        android:background="@color/gray"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <de.hdodenhof.circleimageview.CircleImageView
++        android:id="@+id/profileImageView"
++        android:layout_width="100dp"
++        android:layout_height="100dp"
++        android:layout_marginTop="60dp"
++        android:src="@drawable/ic_user_profile"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/line" />
+ 
+-</FrameLayout>
+\ No newline at end of file
++    <TextView
++        android:id="@+id/nameText"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:clickable="true"
++        android:text="Name"
++        android:textColor="@color/green1"
++        android:textSize="30sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/profileImageView" />
++
++    <TextView
++        android:id="@+id/usernameText"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:clickable="true"
++        android:text="\@username"
++        android:textColor="@color/gray"
++        android:textSize="25sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/nameText" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/signup_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.auth.SignupFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/signup_fragment.xml b/app/src/main/res/layout/signup_fragment.xml
+--- a/app/src/main/res/layout/signup_fragment.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/layout/signup_fragment.xml	(date 1642063390467)
+@@ -1,13 +1,184 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/signupFragment"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".presentation.auth.SignupFragment">
+ 
++    <ImageButton
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:src="@drawable/ic_arrow_back"
++        android:padding="10dp"
++        android:background="@android:color/transparent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/appName"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="50dp"
++        android:text="Registration"
++        android:textColor="@color/green1"
++        android:textSize="30sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <TextView
++        android:id="@+id/userInfo"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="40dp"
++        android:text="Enter your information"
++        android:textColor="@color/green1"
++        android:textSize="20sp"
++        android:textStyle="bold"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/appName" />
++
++    <View
++        android:id="@+id/line"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:text="Hello" />
++        android:layout_height="2dp"
++        android:layout_marginStart="35dp"
++        android:layout_marginEnd="35dp"
++        android:layout_marginBottom="25dp"
++        android:background="@color/gray"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/userInfo" />
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/nameInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="35dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Name"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/line">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/nameInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/usernameInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="UserName"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/nameInputLayout">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/usernameInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/emailInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Email"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/emailInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/passwordInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Password"
++        app:endIconMode="password_toggle"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/passwordInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:inputType="textPassword" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <Button
++        android:id="@+id/loginButton"
++        style="?attr/materialButtonOutlinedStyle"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="25dp"
++        android:layout_marginEnd="35dp"
++        android:text="Sign Up"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
++
++    <View
++        android:layout_width="match_parent"
++        android:layout_height="2dp"
++        android:layout_marginBottom="25dp"
++        android:background="@color/gray"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="25dp"
++        android:gravity="center_vertical"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent">
++
++        <TextView
++            android:id="@+id/HaveAnAccount"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Already have an account?"
++            android:textSize="20sp" />
++
++        <TextView
++            android:id="@+id/LogInText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="10dp"
++            android:clickable="true"
++            android:text="Log In."
++            android:textColor="@color/green1"
++            android:textSize="20sp" />
++    </LinearLayout>
+ 
+-</FrameLayout>
+\ No newline at end of file
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/home_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.home.HomeFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/home_fragment.xml b/app/src/main/res/layout/home_fragment.xml
+--- a/app/src/main/res/layout/home_fragment.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/layout/home_fragment.xml	(date 1642053172573)
+@@ -1,13 +1,18 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".presentation.home.HomeFragment">
++    tools:context=".presentation.home.HomeFragment"
++    android:id="@+id/home">
+ 
+-    <TextView
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/homeRecyclerView"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+-        android:text="Hello" />
+-
+-</FrameLayout>
+\ No newline at end of file
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521845)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml	(date 1641996521845)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-fragment-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9678945f51599ae770f3072a699153e1/transformed/navigation-fragment-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9678945f51599ae770f3072a699153e1/transformed/navigation-fragment-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9678945f51599ae770f3072a699153e1/transformed/navigation-fragment-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-fragment-ktx/2.3.5/9bebacd34921c1dd65c0cf5ceb32f70e8c7b17b9/navigation-fragment-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521832)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml	(date 1641996521832)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-fragment:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/729c04ad89619d65a4e53a3cd93848ca/transformed/navigation-fragment-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/729c04ad89619d65a4e53a3cd93848ca/transformed/navigation-fragment-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/729c04ad89619d65a4e53a3cd93848ca/transformed/navigation-fragment-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-fragment/2.3.5/3622ca880ed637740e391a55d7cd5d0869285d29/navigation-fragment-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521693)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml	(date 1641996521693)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-common-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f091b2e93554fca35bfbd193203f24f3/transformed/navigation-common-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f091b2e93554fca35bfbd193203f24f3/transformed/navigation-common-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f091b2e93554fca35bfbd193203f24f3/transformed/navigation-common-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-common-ktx/2.3.5/1a3ce7c2b9dcc97c1d25ef6ab8e016b5a76de983/navigation-common-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521653)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml	(date 1641996521653)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-common:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/95099bc3d638b52f00a8dd875227961e/transformed/navigation-common-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/95099bc3d638b52f00a8dd875227961e/transformed/navigation-common-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/95099bc3d638b52f00a8dd875227961e/transformed/navigation-common-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-common/2.3.5/8ac119554c336ee331c12b667b4e3f5f725616da/navigation-common-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521911)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml	(date 1641996521911)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-ui-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/7f06ab9f7bef47eaa3e8aba8b690b3d6/transformed/navigation-ui-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7f06ab9f7bef47eaa3e8aba8b690b3d6/transformed/navigation-ui-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7f06ab9f7bef47eaa3e8aba8b690b3d6/transformed/navigation-ui-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-ui-ktx/2.3.5/407dd936012d5b65b0af3e897ea62e436a811419/navigation-ui-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521896)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml	(date 1641996521896)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-ui:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bafe8ece8bce741eaf5529ee6a134102/transformed/navigation-ui-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bafe8ece8bce741eaf5529ee6a134102/transformed/navigation-ui-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bafe8ece8bce741eaf5529ee6a134102/transformed/navigation-ui-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-ui/2.3.5/c3b1c72fb42a6c6ea70970fa444614a2aaa64742/navigation-ui-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521881)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml	(date 1641996521881)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-runtime-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ecc8177f522045f16eecad5a5c65c307/transformed/navigation-runtime-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ecc8177f522045f16eecad5a5c65c307/transformed/navigation-runtime-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ecc8177f522045f16eecad5a5c65c307/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime-ktx/2.3.5/4d2da12a557444e5706dd6ca99f059ec099a45de/navigation-runtime-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521863)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml	(date 1641996521863)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-runtime:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1879140a2ac9929b140ecbd99f3725a7/transformed/navigation-runtime-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1879140a2ac9929b140ecbd99f3725a7/transformed/navigation-runtime-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1879140a2ac9929b140ecbd99f3725a7/transformed/navigation-runtime-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.5/4f74ea56cca52bece088c25ea260082a3b264d38/navigation-runtime-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: app/src/main/res/navigation/nav_graph.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/navigation/nav_graph.xml b/app/src/main/res/navigation/nav_graph.xml
+new file mode 100644
+--- /dev/null	(date 1641997224786)
++++ b/app/src/main/res/navigation/nav_graph.xml	(date 1641997224786)
+@@ -0,0 +1,39 @@
++<?xml version="1.0" encoding="utf-8"?>
++<navigation xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/nav_graph"
++    app:startDestination="@id/homeFragment">
++
++    <fragment
++        android:id="@+id/loginFragment"
++        android:name="com.tuwaiq.rr.presentation.auth.LoginFragment"
++        android:label="LoginFragment" >
++        <action
++            android:id="@+id/action_loginFragment_to_signupFragment"
++            app:destination="@id/signupFragment" />
++    </fragment>
++    <fragment
++        android:id="@+id/signupFragment"
++        android:name="com.tuwaiq.rr.presentation.auth.SignupFragment"
++        android:label="signup_fragment"
++        tools:layout="@layout/signup_fragment" >
++        <action
++            android:id="@+id/action_signupFragment_to_loginFragment"
++            app:destination="@id/loginFragment" />
++    </fragment>
++    <fragment
++        android:id="@+id/homeFragment"
++        android:name="com.tuwaiq.rr.presentation.home.HomeFragment"
++        android:label="home_fragment"
++        tools:layout="@layout/home_fragment" >
++        <action
++            android:id="@+id/action_homeFragment_to_profileFragment"
++            app:destination="@id/profileFragment" />
++    </fragment>
++    <fragment
++        android:id="@+id/profileFragment"
++        android:name="com.tuwaiq.rr.presentation.profile.ProfileFragment"
++        android:label="profile_fragment"
++        tools:layout="@layout/profile_fragment" />
++</navigation>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml b/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521928)
++++ b/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml	(date 1641996521928)
+@@ -0,0 +1,16 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.transition:transition:1.3.0@aar">
++    <ANNOTATIONS>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/annotations.zip!/" />
++    </ANNOTATIONS>
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.transition/transition/1.3.0/1ab749fa90feb756d9cd154f76fce1d8e557cae/transition-1.3.0-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuwaiq.rr.presentation\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.tuwaiq.rr.R\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt b/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt
+--- a/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt	(date 1642013695690)
+@@ -3,10 +3,17 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import com.tuwaiq.rr.R
++import com.tuwaiq.rr.databinding.ActivityMainBinding
+ 
+ class MainActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivityMainBinding
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_main)
++        binding = ActivityMainBinding.inflate(layoutInflater)
++        val view = binding.root
++        setContentView(view)
++
++        binding.bottomNavigationView.background = null
+     }
+ }
+\ No newline at end of file
+Index: .idea/navEditor.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/navEditor.xml b/.idea/navEditor.xml
+new file mode 100644
+--- /dev/null	(date 1641997225328)
++++ b/.idea/navEditor.xml	(date 1641997225328)
+@@ -0,0 +1,85 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="navEditor-manualLayoutAlgorithm2">
++    <option name="myPositions">
++      <map>
++        <entry key="nav_graph.xml">
++          <value>
++            <LayoutPositions>
++              <option name="myPositions">
++                <map>
++                  <entry key="homeFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="-61" />
++                            <option name="y" value="330" />
++                          </Point>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="loginFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="-57" />
++                            <option name="y" value="-32" />
++                          </Point>
++                        </option>
++                        <option name="myPositions">
++                          <map>
++                            <entry key="action_loginFragment_to_signupFragment">
++                              <value>
++                                <LayoutPositions />
++                              </value>
++                            </entry>
++                          </map>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="profileFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="174" />
++                            <option name="y" value="331" />
++                          </Point>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="signupFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="186" />
++                            <option name="y" value="35" />
++                          </Point>
++                        </option>
++                        <option name="myPositions">
++                          <map>
++                            <entry key="action_signupFragment_to_loginFragment">
++                              <value>
++                                <LayoutPositions />
++                              </value>
++                            </entry>
++                          </map>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </LayoutPositions>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules/app/RR.app.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module external.linked.project.id=\":app\" external.linked.project.path=\"$MODULE_DIR$/../../../app\" external.root.project.path=\"$MODULE_DIR$/../../..\" external.system.id=\"GRADLE\" external.system.module.group=\"RR\" external.system.module.version=\"unspecified\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"FacetManager\">\r\n    <facet type=\"android-gradle\" name=\"Android-Gradle\">\r\n      <configuration>\r\n        <option name=\"GRADLE_PROJECT_PATH\" value=\":app\" />\r\n        <option name=\"LAST_SUCCESSFUL_SYNC_AGP_VERSION\" />\r\n        <option name=\"LAST_KNOWN_AGP_VERSION\" value=\"7.0.3\" />\r\n      </configuration>\r\n    </facet>\r\n    <facet type=\"kotlin-language\" name=\"Kotlin\">\r\n      <configuration version=\"4\" platform=\"JVM 1.8\" allPlatforms=\"JVM [1.8]\" useProjectSettings=\"false\">\r\n        <compilerSettings>\r\n          <option name=\"additionalArguments\" value=\"-Xallow-no-source-files\" />\r\n        </compilerSettings>\r\n        <compilerArguments>\r\n          <option name=\"destination\" value=\"$MODULE_DIR$/../../../app/build/tmp/kotlin-classes/debug\" />\r\n          <option name=\"classpath\" value=\"$USER_HOME$/.gradle/caches/transforms-3/b2291d7de3eae2c4d2f3aaec1cd61239/transformed/jetified-viewbinding-7.0.3-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/42e68e779b5857eef615ac35e5194884/transformed/jetified-activity-ktx-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/299ac62912d6d950726ba7a6786852b8/transformed/jetified-lifecycle-viewmodel-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/3e309bbcf81656558451fc389ecd9012/transformed/jetified-lifecycle-runtime-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/cb595545abdd570ca63d8787809a4b08/transformed/jetified-kotlinx-coroutines-android-1.5.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/b7a881a3bd44e3c25d6d0b308b72dea8/transformed/jetified-lifecycle-livedata-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f333745725291495462dd511118804e5/transformed/jetified-kotlinx-coroutines-core-jvm-1.5.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/e90eb66873a19cc87cefbed34933ab00/transformed/jetified-kotlin-stdlib-jdk8-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/da16a920a3da19e7d6a05915241878b7/transformed/jetified-sandriosCamera-1.2.6-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/684749af9287fa600c13cc78bea0af8f/transformed/jetified-dexter-5.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/71f84adc51895bce28643909e50be8e1/transformed/material-1.6.0-alpha01-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/3bae04687a9819f0f5d80a3292d7b50c/transformed/jetified-core-ktx-1.7.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/99e9cab150da587304673d7d547ad4a7/transformed/jetified-ucrop-2.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/01eafc6e7bb61750d8fcc81a26d27fcb/transformed/appcompat-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d39ac86cba07f186f17cbc951b0ed7cc/transformed/jetified-hilt-lifecycle-viewmodel-1.0.0-alpha03-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/4294d392a6e45ce6910f07f987db2a18/transformed/jetified-hilt-android-2.40.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/fc7ad66d88ce0c53034ecdf341c45ff5/transformed/cardview-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/cef7719a71d097f3ce86035a63c693fb/transformed/legacy-support-v4-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a7a779d2038294bc41cd8c51f5fbe1f8/transformed/legacy-support-core-ui-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a86382e87c113c6e64f4137fc867ad59/transformed/coordinatorlayout-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/14cca0114da674d6cf1bb1580055d0dc/transformed/drawerlayout-1.1.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/99113cc36dcdbc0b5a93f3e9ac64d9ba/transformed/dynamicanimation-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2aeb767c1ecc9ea7485c7e89d29784ec/transformed/jetified-glide-4.12.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/af1290152ba25da4a702805a3e053bd9/transformed/jetified-viewpager2-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/c41d32c4c4f2e6a4765943f9353d1a0d/transformed/fragment-1.3.6-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d322ec7aa867b2ed56b92ca565674f80/transformed/recyclerview-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/290c1d1e0ce178daf214433201691b66/transformed/transition-1.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/564c3f012117463b82e93dd2fe7aef21/transformed/jetified-appcompat-resources-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/9ac09976405fb2c5d9a0b2e50b657aa6/transformed/vectordrawable-animated-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/ac222f82b2af1c563a7e3288d55f1957/transformed/vectordrawable-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/091e5f46315e9200e3d0ac3888c7b82c/transformed/jetified-activity-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/351af085ba16349d70cea2afe03e60e5/transformed/media-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f4cbda7e76b97244cb61bc4af2d48891/transformed/legacy-support-core-utils-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f3c259ebf3c2830eb66405964602d4c8/transformed/viewpager-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/0130e513389ab9e83e0dec09b20c4ca5/transformed/slidingpanelayout-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/5d7c4c0aabbc0787ae1df01b9b5c7d05/transformed/customview-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/12062800019ca9efc378d44be79e5588/transformed/loader-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2ecdb2c7f54d1a8611a33a49932ffacb/transformed/swiperefreshlayout-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/1db794a44f659caf003f78e199bff8a6/transformed/asynclayoutinflater-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/349b3ac7fbf7a8c9d854f83b01ec48fb/transformed/core-1.7.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/4efbef004b4918413ed58a0c2fa3e257/transformed/lifecycle-runtime-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/c3403c9f5ead677141073d9009daea67/transformed/cursoradapter-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/142a98bb9b3e53b67402fc09940f399e/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/32b92d1534139d91035734cf33c92db7/transformed/jetified-savedstate-ktx-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/134f96ec641c2a01c27cb00ead751daf/transformed/jetified-savedstate-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/1ddcccfdbca597398d0471b724e35b35/transformed/lifecycle-viewmodel-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/04af7c81ca434592043e60d9b306bcb0/transformed/lifecycle-livedata-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/02bc248da6c0a65fa6b4ae4c4ef1a0b2/transformed/jetified-lifecycle-livedata-core-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/b6c22f6430e0c0446fc5ff41f3c9bdf6/transformed/lifecycle-livedata-core-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.4.0/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.4.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/c6fa5bc1c4ad0fa1769556e65ab8b2aa/transformed/jetified-gifdecoder-4.12.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/68712a049a5eba7bf4e7835c10a715c4/transformed/exifinterface-1.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f213cac869d93e133b3864ace75a70fb/transformed/versionedparcelable-1.1.1-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/0d53bb510577082eea9ca874ed63486b/transformed/core-runtime-2.1.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/dad15f2cba9b570869937233bbc714ab/transformed/documentfile-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a31955819768715b8f25ee2b018f8873/transformed/localbroadcastmanager-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/0ee5227523f1657b710965b8534f1069/transformed/print-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6a19c5771f3ba0eafcb6a2d1ac88eb13/transformed/interpolator-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/51f83ea5869f263db28240ddf86f5d92/transformed/jetified-kotlin-stdlib-jdk7-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/1ed8efc4d0eebcc0bb8b1d0b17daea79/transformed/jetified-kotlin-stdlib-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/b06343dc0d53563a751b517ca3be8ac5/transformed/jetified-annotations-13.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/5ad35d858f6da6908e4f7b2d08b997e8/transformed/jetified-kotlin-stdlib-common-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/1d2a97794f7875024214fb0c39715b9a/transformed/jetified-annotation-experimental-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6920c01710ca8b138c34111c692303e2/transformed/constraintlayout-2.1.2-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d17afe32029547d6cb173b8eb5ac7074/transformed/jetified-hilt-core-2.40.5.jar;C:/Users/rino0/.gradle/caches/transforms-3/0969c6e114cda8b502a561a3a96765e0/transformed/jetified-dagger-2.40.5.jar;C:/Users/rino0/.gradle/caches/transforms-3/a7b07cf39cafb48a4d4eab569c8ba825/transformed/jetified-javax.inject-1.jar;C:/Users/rino0/.gradle/caches/transforms-3/f5d394781df6c64ea157b1ce3e5d94ee/transformed/jetified-dagger-lint-aar-2.40.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f00324ac8c7f630e8d49dac8200d1a07/transformed/jetified-jsr305-3.0.2.jar;C:/Users/rino0/.gradle/caches/transforms-3/280f58ecc8264aeac5c912caa1eb016d/transformed/jetified-hilt-common-1.0.0-alpha03.jar;C:/Users/rino0/.gradle/caches/transforms-3/89cc20d68de444bee9f421336871b149/transformed/jetified-circleimageview-3.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/5aadbaf623c05fc74921f4bd45c97185/transformed/jetified-okhttp-3.4.1.jar;C:/Users/rino0/.gradle/caches/transforms-3/8ebf4920112797b6e4cb9a86b15b23d5/transformed/jetified-okio-1.9.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/935e851a23a68e4b2b3d07798a9b89cd/transformed/jetified-disklrucache-4.12.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/55b3ec2f75ffa3f4bbdea664edcfe018/transformed/jetified-annotations-4.12.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/29031d58bc4a1cadee286a9c721f1989/transformed/jetified-CircularFloatingActionMenu-1.0.2-api.jar;C:/Users/rino0/AppData/Local/Android/Sdk/platforms/android-31/android.jar;C:/Users/rino0/AppData/Local/Android/Sdk/build-tools/30.0.2/core-lambda-stubs.jar\" />\r\n          <option name=\"noStdlib\" value=\"true\" />\r\n          <option name=\"moduleName\" value=\"app_debug\" />\r\n          <option name=\"languageVersion\" value=\"1.6\" />\r\n          <option name=\"apiVersion\" value=\"1.6\" />\r\n          <option name=\"pluginOptions\">\r\n            <array />\r\n          </option>\r\n          <option name=\"pluginClasspaths\">\r\n            <array>\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.6.10/88f2073f4020cdb83132cfe940ceb9a60aba54ea/kotlin-compiler-embeddable-1.6.10.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.10/1cbe9c92c12a94eea200d23c2bbaedaf3daf5132/kotlin-reflect-1.6.10.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.10/b8af3fe6f1ca88526914929add63cf5e7c5049af/kotlin-stdlib-1.6.10.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.10/c118700e3a33c8a0d9adc920e9dec0831171925/kotlin-stdlib-common-1.6.10.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.6.10/d0a7ff2e2500ef497ed0214ae40ad3c8387a6164/kotlin-script-runtime-1.6.10.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.6.10/a56d79bcbea411fa6058e4ecffc2de73e742bd2a/kotlin-daemon-embeddable-1.6.10.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20181211/216c2e14b070f334479d800987affe4054cd563f/trove4j-1.0.20181211.jar\" />\r\n              <option value=\"$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.6.0/330f2244e9030119ab3030fc3fededc86713d9cc/jna-5.6.0.jar\" />\r\n            </array>\r\n          </option>\r\n          <option name=\"errors\">\r\n            <ArgumentParseErrors />\r\n          </option>\r\n        </compilerArguments>\r\n      </configuration>\r\n    </facet>\r\n    <facet type=\"android\" name=\"Android\">\r\n      <configuration>\r\n        <option name=\"SELECTED_BUILD_VARIANT\" value=\"debug\" />\r\n        <option name=\"ASSEMBLE_TASK_NAME\" value=\"assembleDebug\" />\r\n        <option name=\"COMPILE_JAVA_TASK_NAME\" value=\"compileDebugSources\" />\r\n        <afterSyncTasks>\r\n          <task>generateDebugSources</task>\r\n        </afterSyncTasks>\r\n        <option name=\"ALLOW_USER_CONFIGURATION\" value=\"false\" />\r\n        <option name=\"MANIFEST_FILE_RELATIVE_PATH\" value=\"/src/main/AndroidManifest.xml\" />\r\n        <option name=\"RES_FOLDER_RELATIVE_PATH\" value=\"/src/main/res\" />\r\n        <option name=\"RES_FOLDERS_RELATIVE_PATH\" value=\"file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/debug\" />\r\n        <option name=\"TEST_RES_FOLDERS_RELATIVE_PATH\" value=\"file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/debug\" />\r\n        <option name=\"ASSETS_FOLDER_RELATIVE_PATH\" value=\"/src/main/assets\" />\r\n      </configuration>\r\n    </facet>\r\n  </component>\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_1_8\">\r\n    <output url=\"file://$MODULE_DIR$/../../../app/build/intermediates/javac/debug/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/../../../app/build/intermediates/javac/debugUnitTest/classes\" />\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$/../../../app\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/../../../app/src/androidTest/java\" isTestSource=\"true\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/../../../app/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/../../../app/src/main/res\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/../../../app/src/test/java\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/../../../app/.gradle\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/../../../app/build\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"Android API 31 Platform\" jdkType=\"Android SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: junit:junit:4.13.2\" level=\"project\" />\r\n    <orderEntry type=\"module-library\">\r\n      <library name=\"Gradle: kaptGeneratedClasses\">\r\n        <CLASSES>\r\n          <root url=\"file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/debug\" />\r\n        </CLASSES>\r\n        <JAVADOC />\r\n        <SOURCES />\r\n      </library>\r\n    </orderEntry>\r\n    <orderEntry type=\"module-library\" scope=\"TEST\">\r\n      <library name=\"Gradle: kaptGeneratedTestClasses\">\r\n        <CLASSES>\r\n          <root url=\"file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/debugUnitTest\" />\r\n          <root url=\"file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/debugAndroidTest\" />\r\n        </CLASSES>\r\n        <JAVADOC />\r\n        <SOURCES />\r\n      </library>\r\n    </orderEntry>\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: org.hamcrest:hamcrest-core:1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: junit:junit:4.12\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: org.hamcrest:hamcrest-integration:1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: org.hamcrest:hamcrest-library:1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: com.squareup:javawriter:2.1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test.ext:junit:1.1.3@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test.espresso:espresso-core:3.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test:runner:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test:core:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test.services:storage:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test:monitor:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Gradle: androidx.test.espresso:espresso-idling-resource:3.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-common:2.4.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.collection:collection:1.1.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.arch.core:core-common:2.1.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.annotation:annotation:1.3.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.6.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains:annotations:13.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.google.dagger:hilt-core:2.40.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.google.dagger:dagger:2.40.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: javax.inject:javax.inject:1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.google.code.findbugs:jsr305:3.0.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.hilt:hilt-common:1.0.0-alpha03\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.squareup.okhttp3:okhttp:3.4.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.squareup.okio:okio:1.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.github.bumptech.glide:disklrucache:4.12.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.github.bumptech.glide:annotations:4.12.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.databinding:viewbinding:7.0.3@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.activity:activity-ktx:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-livedata-ktx:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.sandrios.android:sandriosCamera:1.2.6@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.karumi:dexter:5.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.google.android.material:material:1.6.0-alpha01@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.core:core-ktx:1.7.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.yalantis:ucrop:2.2.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.appcompat:appcompat:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.google.dagger:hilt-android:2.40.5@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.cardview:cardview:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.legacy:legacy-support-v4:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.drawerlayout:drawerlayout:1.1.1@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.dynamicanimation:dynamicanimation:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.github.bumptech.glide:glide:4.12.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.viewpager2:viewpager2:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.fragment:fragment:1.3.6@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.recyclerview:recyclerview:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.transition:transition:1.2.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.appcompat:appcompat-resources:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.activity:activity:1.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.media:media:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.viewpager:viewpager:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.customview:customview:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.loader:loader:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.core:core:1.7.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-runtime:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.savedstate:savedstate-ktx:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.savedstate:savedstate:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-viewmodel:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-livedata:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.lifecycle:lifecycle-livedata-core:2.4.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.github.bumptech.glide:gifdecoder:4.12.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.exifinterface:exifinterface:1.2.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.arch.core:core-runtime:2.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.documentfile:documentfile:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.print:print:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.interpolator:interpolator:1.0.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.annotation:annotation-experimental:1.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: androidx.constraintlayout:constraintlayout:2.1.2@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.google.dagger:dagger-lint-aar:2.40.5@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: de.hdodenhof:circleimageview:3.1.0@aar\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Gradle: com.oguzdev:CircularFloatingActionMenu:1.0.2@aar\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/app/RR.app.iml b/.idea/modules/app/RR.app.iml
+--- a/.idea/modules/app/RR.app.iml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/.idea/modules/app/RR.app.iml	(date 1642013501239)
+@@ -4,7 +4,7 @@
+     <facet type="android-gradle" name="Android-Gradle">
+       <configuration>
+         <option name="GRADLE_PROJECT_PATH" value=":app" />
+-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
++        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="7.0.3" />
+         <option name="LAST_KNOWN_AGP_VERSION" value="7.0.3" />
+       </configuration>
+     </facet>
+@@ -15,7 +15,7 @@
+         </compilerSettings>
+         <compilerArguments>
+           <option name="destination" value="$MODULE_DIR$/../../../app/build/tmp/kotlin-classes/debug" />
+-          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-3/b2291d7de3eae2c4d2f3aaec1cd61239/transformed/jetified-viewbinding-7.0.3-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/42e68e779b5857eef615ac35e5194884/transformed/jetified-activity-ktx-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/299ac62912d6d950726ba7a6786852b8/transformed/jetified-lifecycle-viewmodel-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/3e309bbcf81656558451fc389ecd9012/transformed/jetified-lifecycle-runtime-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/cb595545abdd570ca63d8787809a4b08/transformed/jetified-kotlinx-coroutines-android-1.5.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/b7a881a3bd44e3c25d6d0b308b72dea8/transformed/jetified-lifecycle-livedata-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f333745725291495462dd511118804e5/transformed/jetified-kotlinx-coroutines-core-jvm-1.5.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/e90eb66873a19cc87cefbed34933ab00/transformed/jetified-kotlin-stdlib-jdk8-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/da16a920a3da19e7d6a05915241878b7/transformed/jetified-sandriosCamera-1.2.6-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/684749af9287fa600c13cc78bea0af8f/transformed/jetified-dexter-5.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/71f84adc51895bce28643909e50be8e1/transformed/material-1.6.0-alpha01-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/3bae04687a9819f0f5d80a3292d7b50c/transformed/jetified-core-ktx-1.7.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/99e9cab150da587304673d7d547ad4a7/transformed/jetified-ucrop-2.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/01eafc6e7bb61750d8fcc81a26d27fcb/transformed/appcompat-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d39ac86cba07f186f17cbc951b0ed7cc/transformed/jetified-hilt-lifecycle-viewmodel-1.0.0-alpha03-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/4294d392a6e45ce6910f07f987db2a18/transformed/jetified-hilt-android-2.40.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/fc7ad66d88ce0c53034ecdf341c45ff5/transformed/cardview-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/cef7719a71d097f3ce86035a63c693fb/transformed/legacy-support-v4-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a7a779d2038294bc41cd8c51f5fbe1f8/transformed/legacy-support-core-ui-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a86382e87c113c6e64f4137fc867ad59/transformed/coordinatorlayout-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/14cca0114da674d6cf1bb1580055d0dc/transformed/drawerlayout-1.1.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/99113cc36dcdbc0b5a93f3e9ac64d9ba/transformed/dynamicanimation-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2aeb767c1ecc9ea7485c7e89d29784ec/transformed/jetified-glide-4.12.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/af1290152ba25da4a702805a3e053bd9/transformed/jetified-viewpager2-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/c41d32c4c4f2e6a4765943f9353d1a0d/transformed/fragment-1.3.6-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d322ec7aa867b2ed56b92ca565674f80/transformed/recyclerview-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/290c1d1e0ce178daf214433201691b66/transformed/transition-1.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/564c3f012117463b82e93dd2fe7aef21/transformed/jetified-appcompat-resources-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/9ac09976405fb2c5d9a0b2e50b657aa6/transformed/vectordrawable-animated-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/ac222f82b2af1c563a7e3288d55f1957/transformed/vectordrawable-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/091e5f46315e9200e3d0ac3888c7b82c/transformed/jetified-activity-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/351af085ba16349d70cea2afe03e60e5/transformed/media-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f4cbda7e76b97244cb61bc4af2d48891/transformed/legacy-support-core-utils-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f3c259ebf3c2830eb66405964602d4c8/transformed/viewpager-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/0130e513389ab9e83e0dec09b20c4ca5/transformed/slidingpanelayout-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/5d7c4c0aabbc0787ae1df01b9b5c7d05/transformed/customview-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/12062800019ca9efc378d44be79e5588/transformed/loader-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2ecdb2c7f54d1a8611a33a49932ffacb/transformed/swiperefreshlayout-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/1db794a44f659caf003f78e199bff8a6/transformed/asynclayoutinflater-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/349b3ac7fbf7a8c9d854f83b01ec48fb/transformed/core-1.7.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/4efbef004b4918413ed58a0c2fa3e257/transformed/lifecycle-runtime-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/c3403c9f5ead677141073d9009daea67/transformed/cursoradapter-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/142a98bb9b3e53b67402fc09940f399e/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/32b92d1534139d91035734cf33c92db7/transformed/jetified-savedstate-ktx-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/134f96ec641c2a01c27cb00ead751daf/transformed/jetified-savedstate-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/1ddcccfdbca597398d0471b724e35b35/transformed/lifecycle-viewmodel-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/04af7c81ca434592043e60d9b306bcb0/transformed/lifecycle-livedata-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/02bc248da6c0a65fa6b4ae4c4ef1a0b2/transformed/jetified-lifecycle-livedata-core-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/b6c22f6430e0c0446fc5ff41f3c9bdf6/transformed/lifecycle-livedata-core-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.4.0/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.4.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/c6fa5bc1c4ad0fa1769556e65ab8b2aa/transformed/jetified-gifdecoder-4.12.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/68712a049a5eba7bf4e7835c10a715c4/transformed/exifinterface-1.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f213cac869d93e133b3864ace75a70fb/transformed/versionedparcelable-1.1.1-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/0d53bb510577082eea9ca874ed63486b/transformed/core-runtime-2.1.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/dad15f2cba9b570869937233bbc714ab/transformed/documentfile-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a31955819768715b8f25ee2b018f8873/transformed/localbroadcastmanager-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/0ee5227523f1657b710965b8534f1069/transformed/print-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6a19c5771f3ba0eafcb6a2d1ac88eb13/transformed/interpolator-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/51f83ea5869f263db28240ddf86f5d92/transformed/jetified-kotlin-stdlib-jdk7-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/1ed8efc4d0eebcc0bb8b1d0b17daea79/transformed/jetified-kotlin-stdlib-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/b06343dc0d53563a751b517ca3be8ac5/transformed/jetified-annotations-13.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/5ad35d858f6da6908e4f7b2d08b997e8/transformed/jetified-kotlin-stdlib-common-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/1d2a97794f7875024214fb0c39715b9a/transformed/jetified-annotation-experimental-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6920c01710ca8b138c34111c692303e2/transformed/constraintlayout-2.1.2-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d17afe32029547d6cb173b8eb5ac7074/transformed/jetified-hilt-core-2.40.5.jar;C:/Users/rino0/.gradle/caches/transforms-3/0969c6e114cda8b502a561a3a96765e0/transformed/jetified-dagger-2.40.5.jar;C:/Users/rino0/.gradle/caches/transforms-3/a7b07cf39cafb48a4d4eab569c8ba825/transformed/jetified-javax.inject-1.jar;C:/Users/rino0/.gradle/caches/transforms-3/f5d394781df6c64ea157b1ce3e5d94ee/transformed/jetified-dagger-lint-aar-2.40.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f00324ac8c7f630e8d49dac8200d1a07/transformed/jetified-jsr305-3.0.2.jar;C:/Users/rino0/.gradle/caches/transforms-3/280f58ecc8264aeac5c912caa1eb016d/transformed/jetified-hilt-common-1.0.0-alpha03.jar;C:/Users/rino0/.gradle/caches/transforms-3/89cc20d68de444bee9f421336871b149/transformed/jetified-circleimageview-3.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/5aadbaf623c05fc74921f4bd45c97185/transformed/jetified-okhttp-3.4.1.jar;C:/Users/rino0/.gradle/caches/transforms-3/8ebf4920112797b6e4cb9a86b15b23d5/transformed/jetified-okio-1.9.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/935e851a23a68e4b2b3d07798a9b89cd/transformed/jetified-disklrucache-4.12.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/55b3ec2f75ffa3f4bbdea664edcfe018/transformed/jetified-annotations-4.12.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/29031d58bc4a1cadee286a9c721f1989/transformed/jetified-CircularFloatingActionMenu-1.0.2-api.jar;C:/Users/rino0/AppData/Local/Android/Sdk/platforms/android-31/android.jar;C:/Users/rino0/AppData/Local/Android/Sdk/build-tools/30.0.2/core-lambda-stubs.jar" />
++          <option name="classpath" value="$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar;C:/Users/rino0/.gradle/caches/transforms-3/b2291d7de3eae2c4d2f3aaec1cd61239/transformed/jetified-viewbinding-7.0.3-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/ddfa1e7c36df1c6346a403f7b9fd9266/transformed/navigation-fragment-ktx-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/ba552aa1aafc7b6e9da4bc9e47235ab0/transformed/navigation-ui-ktx-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f9b1f597d91e804c6f646523e320009f/transformed/navigation-runtime-ktx-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2764e90b4fb0b38e5f614c1b97675ac2/transformed/jetified-fragment-ktx-1.2.4-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/42e68e779b5857eef615ac35e5194884/transformed/jetified-activity-ktx-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/299ac62912d6d950726ba7a6786852b8/transformed/jetified-lifecycle-viewmodel-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/3e309bbcf81656558451fc389ecd9012/transformed/jetified-lifecycle-runtime-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/cb595545abdd570ca63d8787809a4b08/transformed/jetified-kotlinx-coroutines-android-1.5.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/b7a881a3bd44e3c25d6d0b308b72dea8/transformed/jetified-lifecycle-livedata-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f333745725291495462dd511118804e5/transformed/jetified-kotlinx-coroutines-core-jvm-1.5.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/e90eb66873a19cc87cefbed34933ab00/transformed/jetified-kotlin-stdlib-jdk8-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/da16a920a3da19e7d6a05915241878b7/transformed/jetified-sandriosCamera-1.2.6-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/684749af9287fa600c13cc78bea0af8f/transformed/jetified-dexter-5.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/aca41cb1e90b8f801d2e8fd0954ccb1f/transformed/navigation-ui-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/71f84adc51895bce28643909e50be8e1/transformed/material-1.6.0-alpha01-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/3bae04687a9819f0f5d80a3292d7b50c/transformed/jetified-core-ktx-1.7.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/99e9cab150da587304673d7d547ad4a7/transformed/jetified-ucrop-2.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/01eafc6e7bb61750d8fcc81a26d27fcb/transformed/appcompat-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d39ac86cba07f186f17cbc951b0ed7cc/transformed/jetified-hilt-lifecycle-viewmodel-1.0.0-alpha03-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/4294d392a6e45ce6910f07f987db2a18/transformed/jetified-hilt-android-2.40.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/fc7ad66d88ce0c53034ecdf341c45ff5/transformed/cardview-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/cef7719a71d097f3ce86035a63c693fb/transformed/legacy-support-v4-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a7a779d2038294bc41cd8c51f5fbe1f8/transformed/legacy-support-core-ui-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a86382e87c113c6e64f4137fc867ad59/transformed/coordinatorlayout-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/14cca0114da674d6cf1bb1580055d0dc/transformed/drawerlayout-1.1.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/99113cc36dcdbc0b5a93f3e9ac64d9ba/transformed/dynamicanimation-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2aeb767c1ecc9ea7485c7e89d29784ec/transformed/jetified-glide-4.12.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/af1290152ba25da4a702805a3e053bd9/transformed/jetified-viewpager2-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6e090dd41549d9cfa5346fa43811a440/transformed/navigation-fragment-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/c41d32c4c4f2e6a4765943f9353d1a0d/transformed/fragment-1.3.6-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d322ec7aa867b2ed56b92ca565674f80/transformed/recyclerview-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/ed3dbf4e599ed9d9f7def3555bf50db1/transformed/transition-1.3.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/564c3f012117463b82e93dd2fe7aef21/transformed/jetified-appcompat-resources-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/9ac09976405fb2c5d9a0b2e50b657aa6/transformed/vectordrawable-animated-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/ac222f82b2af1c563a7e3288d55f1957/transformed/vectordrawable-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/55b80a97045e237dea98ea73eab4937a/transformed/navigation-runtime-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/091e5f46315e9200e3d0ac3888c7b82c/transformed/jetified-activity-1.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/351af085ba16349d70cea2afe03e60e5/transformed/media-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f4cbda7e76b97244cb61bc4af2d48891/transformed/legacy-support-core-utils-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f3c259ebf3c2830eb66405964602d4c8/transformed/viewpager-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/0130e513389ab9e83e0dec09b20c4ca5/transformed/slidingpanelayout-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/5d7c4c0aabbc0787ae1df01b9b5c7d05/transformed/customview-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/12062800019ca9efc378d44be79e5588/transformed/loader-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2ecdb2c7f54d1a8611a33a49932ffacb/transformed/swiperefreshlayout-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/1db794a44f659caf003f78e199bff8a6/transformed/asynclayoutinflater-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/349b3ac7fbf7a8c9d854f83b01ec48fb/transformed/core-1.7.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/4efbef004b4918413ed58a0c2fa3e257/transformed/lifecycle-runtime-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/c3403c9f5ead677141073d9009daea67/transformed/cursoradapter-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/142a98bb9b3e53b67402fc09940f399e/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/32b92d1534139d91035734cf33c92db7/transformed/jetified-savedstate-ktx-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/134f96ec641c2a01c27cb00ead751daf/transformed/jetified-savedstate-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/1ddcccfdbca597398d0471b724e35b35/transformed/lifecycle-viewmodel-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/04af7c81ca434592043e60d9b306bcb0/transformed/lifecycle-livedata-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/02bc248da6c0a65fa6b4ae4c4ef1a0b2/transformed/jetified-lifecycle-livedata-core-ktx-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/b6c22f6430e0c0446fc5ff41f3c9bdf6/transformed/lifecycle-livedata-core-2.4.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.4.0/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.4.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/c6fa5bc1c4ad0fa1769556e65ab8b2aa/transformed/jetified-gifdecoder-4.12.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/68712a049a5eba7bf4e7835c10a715c4/transformed/exifinterface-1.2.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f213cac869d93e133b3864ace75a70fb/transformed/versionedparcelable-1.1.1-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/baad68fcef2b86bca9efa5a866de5f08/transformed/jetified-collection-ktx-1.1.0.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/0d53bb510577082eea9ca874ed63486b/transformed/core-runtime-2.1.0-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/dad15f2cba9b570869937233bbc714ab/transformed/documentfile-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/a31955819768715b8f25ee2b018f8873/transformed/localbroadcastmanager-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/0ee5227523f1657b710965b8534f1069/transformed/print-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6a19c5771f3ba0eafcb6a2d1ac88eb13/transformed/interpolator-1.0.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/2ea04b7a698b933ad6c4e965017d4d14/transformed/navigation-common-ktx-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/52e74399213585a16591b84f2dc583c7/transformed/navigation-common-2.3.5-api.jar;C:/Users/rino0/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/51f83ea5869f263db28240ddf86f5d92/transformed/jetified-kotlin-stdlib-jdk7-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/1ed8efc4d0eebcc0bb8b1d0b17daea79/transformed/jetified-kotlin-stdlib-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/b06343dc0d53563a751b517ca3be8ac5/transformed/jetified-annotations-13.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/5ad35d858f6da6908e4f7b2d08b997e8/transformed/jetified-kotlin-stdlib-common-1.6.10.jar;C:/Users/rino0/.gradle/caches/transforms-3/1d2a97794f7875024214fb0c39715b9a/transformed/jetified-annotation-experimental-1.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/6920c01710ca8b138c34111c692303e2/transformed/constraintlayout-2.1.2-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/d17afe32029547d6cb173b8eb5ac7074/transformed/jetified-hilt-core-2.40.5.jar;C:/Users/rino0/.gradle/caches/transforms-3/0969c6e114cda8b502a561a3a96765e0/transformed/jetified-dagger-2.40.5.jar;C:/Users/rino0/.gradle/caches/transforms-3/a7b07cf39cafb48a4d4eab569c8ba825/transformed/jetified-javax.inject-1.jar;C:/Users/rino0/.gradle/caches/transforms-3/f5d394781df6c64ea157b1ce3e5d94ee/transformed/jetified-dagger-lint-aar-2.40.5-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/f00324ac8c7f630e8d49dac8200d1a07/transformed/jetified-jsr305-3.0.2.jar;C:/Users/rino0/.gradle/caches/transforms-3/280f58ecc8264aeac5c912caa1eb016d/transformed/jetified-hilt-common-1.0.0-alpha03.jar;C:/Users/rino0/.gradle/caches/transforms-3/89cc20d68de444bee9f421336871b149/transformed/jetified-circleimageview-3.1.0-api.jar;C:/Users/rino0/.gradle/caches/transforms-3/5aadbaf623c05fc74921f4bd45c97185/transformed/jetified-okhttp-3.4.1.jar;C:/Users/rino0/.gradle/caches/transforms-3/8ebf4920112797b6e4cb9a86b15b23d5/transformed/jetified-okio-1.9.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/935e851a23a68e4b2b3d07798a9b89cd/transformed/jetified-disklrucache-4.12.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/55b3ec2f75ffa3f4bbdea664edcfe018/transformed/jetified-annotations-4.12.0.jar;C:/Users/rino0/.gradle/caches/transforms-3/29031d58bc4a1cadee286a9c721f1989/transformed/jetified-CircularFloatingActionMenu-1.0.2-api.jar;C:/Users/rino0/AppData/Local/Android/Sdk/platforms/android-31/android.jar;C:/Users/rino0/AppData/Local/Android/Sdk/build-tools/30.0.2/core-lambda-stubs.jar" />
+           <option name="noStdlib" value="true" />
+           <option name="moduleName" value="app_debug" />
+           <option name="languageVersion" value="1.6" />
+@@ -64,6 +64,11 @@
+     <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debugUnitTest/classes" />
+     <exclude-output />
+     <content url="file://$MODULE_DIR$/../../../app">
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/resValues/debug" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/debug" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/debug" isTestSource="false" generated="true" />
+       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/java" isTestSource="true" />
+       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/java" isTestSource="false" />
+       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/res" type="java-resource" />
+@@ -104,11 +109,13 @@
+     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.4.0@aar" level="project" />
+     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.services:storage:1.4.0@aar" level="project" />
+     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.4.0@aar" level="project" />
++    <orderEntry type="library" scope="TEST" name="Gradle: androidx.transition:transition:1.2.0@aar" level="project" />
+     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0" level="project" />
+     <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0" level="project" />
+     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.4.0" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.collection:collection-ktx:1.1.0" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.3.0" level="project" />
+@@ -126,12 +133,17 @@
+     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.12.0" level="project" />
+     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.12.0" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.databinding:viewbinding:7.0.3@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-fragment-ktx:2.3.5@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui-ktx:2.3.5@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-runtime-ktx:2.3.5@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.fragment:fragment-ktx:1.2.4@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.activity:activity-ktx:1.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-ktx:2.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: com.sandrios.android:sandriosCamera:1.2.6@aar" level="project" />
+     <orderEntry type="library" name="Gradle: com.karumi:dexter:5.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui:2.3.5@aar" level="project" />
+     <orderEntry type="library" name="Gradle: com.google.android.material:material:1.6.0-alpha01@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.core:core-ktx:1.7.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: com.yalantis:ucrop:2.2.0@aar" level="project" />
+@@ -146,12 +158,14 @@
+     <orderEntry type="library" name="Gradle: androidx.dynamicanimation:dynamicanimation:1.0.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:4.12.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.viewpager2:viewpager2:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-fragment:2.3.5@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.3.6@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.recyclerview:recyclerview:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.transition:transition:1.2.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.transition:transition:1.3.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-runtime:2.3.5@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.activity:activity:1.4.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.media:media:1.0.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar" level="project" />
+@@ -179,6 +193,8 @@
+     <orderEntry type="library" name="Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.print:print:1.0.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-common-ktx:2.3.5@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-common:2.3.5@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.1.0@aar" level="project" />
+     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:2.1.2@aar" level="project" />
+     <orderEntry type="library" name="Gradle: com.google.dagger:dagger-lint-aar:2.40.5@aar" level="project" />
+Index: app/src/main/res/drawable/ic_favorite_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_favorite_1.xml b/app/src/main/res/drawable/ic_favorite_1.xml
+new file mode 100644
+--- /dev/null	(date 1642049559127)
++++ b/app/src/main/res/drawable/ic_favorite_1.xml	(date 1642049559127)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M16.5,3c-1.74,0 -3.41,0.81 -4.5,2.09C10.91,3.81 9.24,3 7.5,3 4.42,3 2,5.42 2,8.5c0,3.78 3.4,6.86 8.55,11.54L12,21.35l1.45,-1.32C18.6,15.36 22,12.28 22,8.5 22,5.42 19.58,3 16.5,3zM12.1,18.55l-0.1,0.1 -0.1,-0.1C7.14,14.24 4,11.39 4,8.5 4,6.5 5.5,5 7.5,5c1.54,0 3.04,0.99 3.57,2.36h1.87C13.46,5.99 14.96,5 16.5,5c2,0 3.5,1.5 3.5,3.5 0,2.89 -3.14,5.74 -7.9,10.05z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_person.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_person.xml b/app/src/main/res/drawable/ic_person.xml
+new file mode 100644
+--- /dev/null	(date 1642049559097)
++++ b/app/src/main/res/drawable/ic_person.xml	(date 1642049559097)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M12,5.9c1.16,0 2.1,0.94 2.1,2.1s-0.94,2.1 -2.1,2.1S9.9,9.16 9.9,8s0.94,-2.1 2.1,-2.1m0,9c2.97,0 6.1,1.46 6.1,2.1v1.1L5.9,18.1L5.9,17c0,-0.64 3.13,-2.1 6.1,-2.1M12,4C9.79,4 8,5.79 8,8s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4zM12,13c-2.67,0 -8,1.34 -8,4v3h16v-3c0,-2.66 -5.33,-4 -8,-4z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_lock.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_lock.xml b/app/src/main/res/drawable/ic_lock.xml
+new file mode 100644
+--- /dev/null	(date 1642049559122)
++++ b/app/src/main/res/drawable/ic_lock.xml	(date 1642049559122)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M18,8h-1L17,6c0,-2.76 -2.24,-5 -5,-5S7,3.24 7,6v2L6,8c-1.1,0 -2,0.9 -2,2v10c0,1.1 0.9,2 2,2h12c1.1,0 2,-0.9 2,-2L20,10c0,-1.1 -0.9,-2 -2,-2zM12,17c-1.1,0 -2,-0.9 -2,-2s0.9,-2 2,-2 2,0.9 2,2 -0.9,2 -2,2zM15.1,8L8.9,8L8.9,6c0,-1.71 1.39,-3.1 3.1,-3.1 1.71,0 3.1,1.39 3.1,3.1v2z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_home.xml b/app/src/main/res/drawable/ic_home.xml
+new file mode 100644
+--- /dev/null	(date 1642049559092)
++++ b/app/src/main/res/drawable/ic_home.xml	(date 1642049559092)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>
++</vector>
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.MainActivity\">\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Hello World!\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        app:layout_constraintRight_toRightOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1642015449340)
+@@ -1,18 +1,48 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".presentation.MainActivity">
+ 
+-    <TextView
++
++<!--    <androidx.fragment.app.FragmentContainerView-->
++<!--        android:id="@+id/fragmentContainerView"-->
++<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
++<!--        android:layout_width="match_parent"-->
++<!--        android:layout_height="wrap_content"-->
++<!--        app:defaultNavHost="true"-->
++<!--        app:layout_constraintBottom_toBottomOf="parent"-->
++<!--        app:layout_constraintEnd_toEndOf="parent"-->
++<!--        app:layout_constraintStart_toStartOf="parent"-->
++<!--        app:layout_constraintTop_toTopOf="parent"-->
++<!--        app:navGraph="@navigation/nav_graph" />-->
++
++    <com.google.android.material.bottomappbar.BottomAppBar
++        android:id="@+id/bottomAppBar"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_gravity="bottom"
++        app:fabCradleMargin="10dp"
++        app:fabCradleRoundedCornerRadius="20dp"
++        app:fabCradleVerticalOffset="5dp">
++
++        <com.google.android.material.bottomnavigation.BottomNavigationView
++            android:id="@+id/bottomNavigationView"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginEnd="16dp"
++            android:background="@android:color/transparent"
++            app:menu="@menu/bottom_navigation_menu" />
++    </com.google.android.material.bottomappbar.BottomAppBar>
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/fab"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Hello World!"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintLeft_toLeftOf="parent"
+-        app:layout_constraintRight_toRightOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:src="@drawable/ic_baseline_add_24"
++        app:layout_anchor="@id/bottomAppBar" />
++
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_favorite_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_favorite_2.xml b/app/src/main/res/drawable/ic_favorite_2.xml
+new file mode 100644
+--- /dev/null	(date 1642049559102)
++++ b/app/src/main/res/drawable/ic_favorite_2.xml	(date 1642049559102)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M12,21.35l-1.45,-1.32C5.4,15.36 2,12.28 2,8.5 2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3 19.58,3 22,5.42 22,8.5c0,3.78 -3.4,6.86 -8.55,11.54L12,21.35z"/>
++</vector>
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"purple_200\">#FFBB86FC</color>\r\n    <color name=\"purple_500\">#FF6200EE</color>\r\n    <color name=\"purple_700\">#FF3700B3</color>\r\n    <color name=\"teal_200\">#FF03DAC5</color>\r\n    <color name=\"teal_700\">#FF018786</color>\r\n    <color name=\"black\">#FF000000</color>\r\n    <color name=\"white\">#FFFFFFFF</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/values/colors.xml	(date 1642054102608)
+@@ -5,6 +5,12 @@
+     <color name="purple_700">#FF3700B3</color>
+     <color name="teal_200">#FF03DAC5</color>
+     <color name="teal_700">#FF018786</color>
+-    <color name="black">#FF000000</color>
+-    <color name="white">#FFFFFFFF</color>
++    <color name="Primary">#FF000000</color>
++    <color name="Secondary">#FFFFFFFF</color>
++    <color name="green1">#1C5739</color>
++    <color name="green2">#37B173</color>
++    <color name="green3">#70BD6E</color>
++    <color name="green4">#8AD189</color>
++    <color name="gray">#7B7C7B</color>
++
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/values-night/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values-night/colors.xml b/app/src/main/res/values-night/colors.xml
+new file mode 100644
+--- /dev/null	(date 1642054102624)
++++ b/app/src/main/res/values-night/colors.xml	(date 1642054102624)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="purple_200">#FFBB86FC</color>
++    <color name="purple_500">#FF6200EE</color>
++    <color name="purple_700">#FF3700B3</color>
++    <color name="teal_200">#FF03DAC5</color>
++    <color name="teal_700">#FF018786</color>
++    <color name="Primary">#FFFFFFFF</color>
++    <color name="Secondary">#FF000000</color>
++    <color name="green1">#8AD189</color>
++    <color name="green2">#70BD6E</color>
++    <color name="green3">#37B173</color>
++    <color name="green4">#1C5739</color>
++
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/menu/bottom_navigation_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/menu/bottom_navigation_menu.xml b/app/src/main/res/menu/bottom_navigation_menu.xml
+new file mode 100644
+--- /dev/null	(date 1642001858278)
++++ b/app/src/main/res/menu/bottom_navigation_menu.xml	(date 1642001858278)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:id="@+id/home"
++        android:title="Home"
++        android:icon="@drawable/ic_baseline_home_24"/>
++
++    <item android:id="@+id/profileFragment"
++        android:title="Profile"
++        android:icon="@drawable/ic_baseline_home_24"/>
++
++<!--    <item android:id="@+id/"-->
++<!--        android:title="Home"-->
++<!--        android:icon="@drawable/ic_baseline_home_24"/>-->
++
++</menu>
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.RR\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_500</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/white</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_700</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\" tools:targetApi=\"l\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+--- a/app/src/main/res/values/themes.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/values/themes.xml	(date 1642004269957)
+@@ -2,12 +2,12 @@
+     <!-- Base application theme. -->
+     <style name="Theme.RR" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_500</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorPrimary">#286E4A</item>
++        <item name="colorPrimaryVariant">#1C5739</item>
+         <item name="colorOnPrimary">@color/white</item>
+         <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_700</item>
++        <item name="colorSecondary">#70BD6E</item>
++        <item name="colorSecondaryVariant">#3F8E3D</item>
+         <item name="colorOnSecondary">@color/black</item>
+         <!-- Status bar color. -->
+         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/.idea/misc.xml	(date 1642063391057)
+@@ -1,5 +1,22 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="DesignSurface">
++    <option name="filePathToZoomLevelMap">
++      <map>
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1578125" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_favorite_1.xml" value="0.1" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_user_profile.xml" value="0.1578125" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/home_fragment.xml" value="0.16666666666666666" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/ic_favorite_1.xml" value="0.1" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/login_fragment.xml" value="0.14666666666666667" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/profile_fragment.xml" value="0.4466666666666667" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/signup_fragment.xml" value="0.22" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.16666666666666666" />
++      </map>
++    </option>
++  </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+Index: app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.RR\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_200</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/black</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_200</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\" tools:targetApi=\"l\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values-night/themes.xml b/app/src/main/res/values-night/themes.xml
+--- a/app/src/main/res/values-night/themes.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/app/src/main/res/values-night/themes.xml	(date 1642004269922)
+@@ -2,12 +2,12 @@
+     <!-- Base application theme. -->
+     <style name="Theme.RR" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_200</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorPrimary">#37B173</item>
++        <item name="colorPrimaryVariant">#1C5739</item>
+         <item name="colorOnPrimary">@color/black</item>
+         <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_200</item>
++        <item name="colorSecondary">#70BD6E</item>
++        <item name="colorSecondaryVariant">#8AD189</item>
+         <item name="colorOnSecondary">@color/black</item>
+         <!-- Status bar color. -->
+         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+Index: app/src/main/res/drawable/ic_user_profile.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_user_profile.xml b/app/src/main/res/drawable/ic_user_profile.xml
+new file mode 100644
+--- /dev/null	(date 1642054074566)
++++ b/app/src/main/res/drawable/ic_user_profile.xml	(date 1642054074566)
+@@ -0,0 +1,23 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="600dp"
++    android:height="600dp"
++    android:viewportWidth="600"
++    android:viewportHeight="600">
++  <group>
++    <clip-path
++        android:pathData="M0,0h600v498h-600z"/>
++    <path
++        android:pathData="M300,300m-280,0a280,280 0,1 1,560 0a280,280 0,1 1,-560 0"
++        android:fillColor="@color/green1"/>
++  </group>
++  <path
++      android:pathData="M300,230m-115,0a115,115 0,1 1,230 0a115,115 0,1 1,-230 0"
++      android:fillColor="@color/Secondary"/>
++  <group>
++    <clip-path
++        android:pathData="M300,300m-280,0a280,280 0,1 1,560 0a280,280 0,1 1,-560 0"/>
++    <path
++        android:pathData="M300,550m-205,0a205,205 0,1 1,410 0a205,205 0,1 1,-410 0"
++        android:fillColor="@color/Secondary"/>
++  </group>
++</vector>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 4fd6b0c8778eccc4be74fab4973315c2ad9ea320)
++++ b/.idea/gradle.xml	(date 1642008780553)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: .idea/assetWizardSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/assetWizardSettings.xml b/.idea/assetWizardSettings.xml
+new file mode 100644
+--- /dev/null	(date 1642063391088)
++++ b/.idea/assetWizardSettings.xml	(date 1642063391088)
+@@ -0,0 +1,47 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="WizardSettings">
++    <option name="children">
++      <map>
++        <entry key="vectorWizard">
++          <value>
++            <PersistentState>
++              <option name="children">
++                <map>
++                  <entry key="vectorAssetStep">
++                    <value>
++                      <PersistentState>
++                        <option name="children">
++                          <map>
++                            <entry key="clipartAsset">
++                              <value>
++                                <PersistentState>
++                                  <option name="values">
++                                    <map>
++                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/arrow_back_ios/baseline_arrow_back_ios_24.xml" />
++                                    </map>
++                                  </option>
++                                </PersistentState>
++                              </value>
++                            </entry>
++                          </map>
++                        </option>
++                        <option name="values">
++                          <map>
++                            <entry key="color" value="ffffff" />
++                            <entry key="outputName" value="ic_baseline_arrow_back_ios_24" />
++                            <entry key="sourceFile" value="C:\Users\rino0\Downloads\user_profile.svg" />
++                          </map>
++                        </option>
++                      </PersistentState>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </PersistentState>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml b/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml
+new file mode 100644
+--- /dev/null	(date 1641996521628)
++++ b/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml	(date 1641996521628)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.fragment:fragment-ktx:1.2.4@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fac44fc3ef5da7da9178da6e33491790/transformed/jetified-fragment-ktx-1.2.4/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fac44fc3ef5da7da9178da6e33491790/transformed/jetified-fragment-ktx-1.2.4/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fac44fc3ef5da7da9178da6e33491790/transformed/jetified-fragment-ktx-1.2.4/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment-ktx/1.2.4/1ffa885329ceba2ceb2bea1253d2ca32a0c95fa7/fragment-ktx-1.2.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml b/.idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml
+new file mode 100644
+--- /dev/null	(date 1641996521605)
++++ b/.idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml	(date 1641996521605)
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.collection:collection-ktx:1.1.0">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-ktx/1.1.0/f807b2f366f7b75142a67d2f3c10031065b5168/collection-ktx-1.1.0.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-ktx/1.1.0/dd245d312c270a48386e9435e385480743578e9b/collection-ktx-1.1.0-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file

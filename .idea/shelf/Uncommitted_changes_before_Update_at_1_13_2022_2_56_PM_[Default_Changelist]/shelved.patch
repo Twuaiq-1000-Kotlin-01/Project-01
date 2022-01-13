@@ -1,0 +1,604 @@
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.MainActivity\">\r\n\r\n\r\n<!--    <androidx.fragment.app.FragmentContainerView-->\r\n<!--        android:id=\"@+id/fragmentContainerView\"-->\r\n<!--        android:name=\"androidx.navigation.fragment.NavHostFragment\"-->\r\n<!--        android:layout_width=\"match_parent\"-->\r\n<!--        android:layout_height=\"wrap_content\"-->\r\n<!--        app:defaultNavHost=\"true\"-->\r\n<!--        app:layout_constraintBottom_toBottomOf=\"parent\"-->\r\n<!--        app:layout_constraintEnd_toEndOf=\"parent\"-->\r\n<!--        app:layout_constraintStart_toStartOf=\"parent\"-->\r\n<!--        app:layout_constraintTop_toTopOf=\"parent\"-->\r\n<!--        app:navGraph=\"@navigation/nav_graph\" />-->\r\n\r\n    <com.google.android.material.bottomappbar.BottomAppBar\r\n        android:id=\"@+id/bottomAppBar\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_gravity=\"bottom\"\r\n        app:fabCradleMargin=\"10dp\"\r\n        app:fabCradleRoundedCornerRadius=\"20dp\"\r\n        app:fabCradleVerticalOffset=\"5dp\">\r\n\r\n        <com.google.android.material.bottomnavigation.BottomNavigationView\r\n            android:id=\"@+id/bottomNavigationView\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_marginEnd=\"16dp\"\r\n            android:background=\"@android:color/transparent\"\r\n            app:menu=\"@menu/bottom_navigation_menu\" />\r\n    </com.google.android.material.bottomappbar.BottomAppBar>\r\n\r\n    <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n        android:id=\"@+id/fab\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:src=\"@drawable/ic_add\"\r\n        app:layout_anchor=\"@id/bottomAppBar\" />\r\n\r\n\r\n</androidx.coordinatorlayout.widget.CoordinatorLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1642069451040)
+@@ -7,17 +7,13 @@
+     tools:context=".presentation.MainActivity">
+ 
+ 
+-<!--    <androidx.fragment.app.FragmentContainerView-->
+-<!--        android:id="@+id/fragmentContainerView"-->
+-<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+-<!--        android:layout_width="match_parent"-->
+-<!--        android:layout_height="wrap_content"-->
+-<!--        app:defaultNavHost="true"-->
+-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+-<!--        app:layout_constraintEnd_toEndOf="parent"-->
+-<!--        app:layout_constraintStart_toStartOf="parent"-->
+-<!--        app:layout_constraintTop_toTopOf="parent"-->
+-<!--        app:navGraph="@navigation/nav_graph" />-->
++    <fragment
++        android:id="@+id/fragmentContainerView"
++        android:name="androidx.navigation.fragment.NavHostFragment"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        app:defaultNavHost="true"
++        app:navGraph="@navigation/nav_graph" />
+ 
+     <com.google.android.material.bottomappbar.BottomAppBar
+         android:id="@+id/bottomAppBar"
+Index: app/src/main/res/layout/profile_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    tools:context=\".presentation.profile.ProfileFragment\"\r\n    android:id=\"@+id/profileFragment\">\r\n\r\n    <View\r\n        android:id=\"@+id/line\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"2dp\"\r\n        android:layout_marginBottom=\"25dp\"\r\n        android:layout_marginTop=\"60dp\"\r\n        android:background=\"@color/gray\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n    <de.hdodenhof.circleimageview.CircleImageView\r\n        android:id=\"@+id/profileImageView\"\r\n        android:layout_width=\"100dp\"\r\n        android:layout_height=\"100dp\"\r\n        android:layout_marginTop=\"60dp\"\r\n        android:src=\"@drawable/ic_user_profile\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/line\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/nameText\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:clickable=\"true\"\r\n        android:text=\"Name\"\r\n        android:textColor=\"@color/green1\"\r\n        android:textSize=\"30sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/profileImageView\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/usernameText\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:clickable=\"true\"\r\n        android:text=\"\\@username\"\r\n        android:textColor=\"@color/gray\"\r\n        android:textSize=\"25sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/nameText\" />\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/profile_fragment.xml b/app/src/main/res/layout/profile_fragment.xml
+--- a/app/src/main/res/layout/profile_fragment.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/layout/profile_fragment.xml	(date 1642072580223)
+@@ -7,6 +7,25 @@
+     tools:context=".presentation.profile.ProfileFragment"
+     android:id="@+id/profileFragment">
+ 
++    <TextView
++        android:id="@+id/appName"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="RR Project"
++        android:textColor="@color/green1"
++        android:textSize="40sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <ImageButton
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        android:src="@drawable/ic_logout"
++        android:background="@android:color/transparent"/>
++
+     <View
+         android:id="@+id/line"
+         android:layout_width="match_parent"
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"purple_200\">#FFBB86FC</color>\r\n    <color name=\"purple_500\">#FF6200EE</color>\r\n    <color name=\"purple_700\">#FF3700B3</color>\r\n    <color name=\"teal_200\">#FF03DAC5</color>\r\n    <color name=\"teal_700\">#FF018786</color>\r\n    <color name=\"Primary\">#FF000000</color>\r\n    <color name=\"Secondary\">#FFFFFFFF</color>\r\n    <color name=\"green1\">#1C5739</color>\r\n    <color name=\"green2\">#37B173</color>\r\n    <color name=\"green3\">#70BD6E</color>\r\n    <color name=\"green4\">#8AD189</color>\r\n    <color name=\"gray\">#7B7C7B</color>\r\n\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/values/colors.xml	(date 1642067936175)
+@@ -6,7 +6,9 @@
+     <color name="teal_200">#FF03DAC5</color>
+     <color name="teal_700">#FF018786</color>
+     <color name="Primary">#FF000000</color>
++    <color name="black">#FF000000</color>
+     <color name="Secondary">#FFFFFFFF</color>
++    <color name="white">#FFFFFFFF</color>
+     <color name="green1">#1C5739</color>
+     <color name="green2">#37B173</color>
+     <color name="green3">#70BD6E</color>
+Index: app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuwaiq.rr.presentation\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.tuwaiq.rr.R\r\nimport com.tuwaiq.rr.databinding.ActivityMainBinding\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n\r\n    private lateinit var binding: ActivityMainBinding\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivityMainBinding.inflate(layoutInflater)\r\n        val view = binding.root\r\n        setContentView(view)\r\n\r\n        binding.bottomNavigationView.background = null\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt b/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt
+--- a/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt	(date 1642073095279)
+@@ -4,7 +4,9 @@
+ import android.os.Bundle
+ import com.tuwaiq.rr.R
+ import com.tuwaiq.rr.databinding.ActivityMainBinding
++import dagger.hilt.android.AndroidEntryPoint
+ 
++@AndroidEntryPoint
+ class MainActivity : AppCompatActivity() {
+ 
+     private lateinit var binding: ActivityMainBinding
+Index: app/src/main/res/drawable/ic_lock.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:height=\"24dp\" android:tint=\"#FFFFFF\"\r\n    android:viewportHeight=\"24\" android:viewportWidth=\"24\"\r\n    android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M18,8h-1L17,6c0,-2.76 -2.24,-5 -5,-5S7,3.24 7,6v2L6,8c-1.1,0 -2,0.9 -2,2v10c0,1.1 0.9,2 2,2h12c1.1,0 2,-0.9 2,-2L20,10c0,-1.1 -0.9,-2 -2,-2zM12,17c-1.1,0 -2,-0.9 -2,-2s0.9,-2 2,-2 2,0.9 2,2 -0.9,2 -2,2zM15.1,8L8.9,8L8.9,6c0,-1.71 1.39,-3.1 3.1,-3.1 1.71,0 3.1,1.39 3.1,3.1v2z\"/>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_lock.xml b/app/src/main/res/drawable/ic_lock.xml
+--- a/app/src/main/res/drawable/ic_lock.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/drawable/ic_lock.xml	(date 1642066376842)
+@@ -1,5 +1,10 @@
+-<vector android:height="24dp" android:tint="#FFFFFF"
+-    android:viewportHeight="24" android:viewportWidth="24"
+-    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+-    <path android:fillColor="@android:color/white" android:pathData="M18,8h-1L17,6c0,-2.76 -2.24,-5 -5,-5S7,3.24 7,6v2L6,8c-1.1,0 -2,0.9 -2,2v10c0,1.1 0.9,2 2,2h12c1.1,0 2,-0.9 2,-2L20,10c0,-1.1 -0.9,-2 -2,-2zM12,17c-1.1,0 -2,-0.9 -2,-2s0.9,-2 2,-2 2,0.9 2,2 -0.9,2 -2,2zM15.1,8L8.9,8L8.9,6c0,-1.71 1.39,-3.1 3.1,-3.1 1.71,0 3.1,1.39 3.1,3.1v2z"/>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M18,8h-1L17,6c0,-2.76 -2.24,-5 -5,-5S7,3.24 7,6v2L6,8c-1.1,0 -2,0.9 -2,2v10c0,1.1 0.9,2 2,2h12c1.1,0 2,-0.9 2,-2L20,10c0,-1.1 -0.9,-2 -2,-2zM12,17c-1.1,0 -2,-0.9 -2,-2s0.9,-2 2,-2 2,0.9 2,2 -0.9,2 -2,2zM15.1,8L8.9,8L8.9,6c0,-1.71 1.39,-3.1 3.1,-3.1 1.71,0 3.1,1.39 3.1,3.1v2z" />
+ </vector>
+Index: app/src/main/res/drawable/ic_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:height=\"24dp\" android:tint=\"#FFFFFF\"\r\n    android:viewportHeight=\"24\" android:viewportWidth=\"24\"\r\n    android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z\"/>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_home.xml b/app/src/main/res/drawable/ic_home.xml
+--- a/app/src/main/res/drawable/ic_home.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/drawable/ic_home.xml	(date 1642066386687)
+@@ -1,5 +1,10 @@
+-<vector android:height="24dp" android:tint="#FFFFFF"
+-    android:viewportHeight="24" android:viewportWidth="24"
+-    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+-    <path android:fillColor="@android:color/white" android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z" />
+ </vector>
+Index: app/src/main/res/navigation/nav_graph.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<navigation xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/nav_graph\"\r\n    app:startDestination=\"@id/homeFragment\">\r\n\r\n    <fragment\r\n        android:id=\"@+id/loginFragment\"\r\n        android:name=\"com.tuwaiq.rr.presentation.auth.LoginFragment\"\r\n        android:label=\"LoginFragment\" >\r\n        <action\r\n            android:id=\"@+id/action_loginFragment_to_signupFragment\"\r\n            app:destination=\"@id/signupFragment\" />\r\n    </fragment>\r\n    <fragment\r\n        android:id=\"@+id/signupFragment\"\r\n        android:name=\"com.tuwaiq.rr.presentation.auth.SignupFragment\"\r\n        android:label=\"signup_fragment\"\r\n        tools:layout=\"@layout/signup_fragment\" >\r\n        <action\r\n            android:id=\"@+id/action_signupFragment_to_loginFragment\"\r\n            app:destination=\"@id/loginFragment\" />\r\n    </fragment>\r\n    <fragment\r\n        android:id=\"@+id/homeFragment\"\r\n        android:name=\"com.tuwaiq.rr.presentation.home.HomeFragment\"\r\n        android:label=\"home_fragment\"\r\n        tools:layout=\"@layout/home_fragment\" >\r\n        <action\r\n            android:id=\"@+id/action_homeFragment_to_profileFragment\"\r\n            app:destination=\"@id/profileFragment\" />\r\n    </fragment>\r\n    <fragment\r\n        android:id=\"@+id/profileFragment\"\r\n        android:name=\"com.tuwaiq.rr.presentation.profile.ProfileFragment\"\r\n        android:label=\"profile_fragment\"\r\n        tools:layout=\"@layout/profile_fragment\" />\r\n</navigation>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/navigation/nav_graph.xml b/app/src/main/res/navigation/nav_graph.xml
+--- a/app/src/main/res/navigation/nav_graph.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/navigation/nav_graph.xml	(date 1642067515794)
+@@ -3,7 +3,7 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:id="@+id/nav_graph"
+-    app:startDestination="@id/homeFragment">
++    app:startDestination="@id/loginFragment">
+ 
+     <fragment
+         android:id="@+id/loginFragment"
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.name b/.idea/.name
+new file mode 100644
+--- /dev/null	(date 1642064990516)
++++ b/.idea/.name	(date 1642064990516)
+@@ -0,0 +1,1 @@
++RR
+\ No newline at end of file
+Index: app/src/main/res/menu/bottom_navigation_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<menu xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <item android:id=\"@+id/home\"\r\n        android:title=\"Home\"\r\n        android:icon=\"@drawable/ic_baseline_home_24\"/>\r\n\r\n    <item android:id=\"@+id/profileFragment\"\r\n        android:title=\"Profile\"\r\n        android:icon=\"@drawable/ic_baseline_home_24\"/>\r\n\r\n<!--    <item android:id=\"@+id/\"-->\r\n<!--        android:title=\"Home\"-->\r\n<!--        android:icon=\"@drawable/ic_baseline_home_24\"/>-->\r\n\r\n</menu>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/menu/bottom_navigation_menu.xml b/app/src/main/res/menu/bottom_navigation_menu.xml
+--- a/app/src/main/res/menu/bottom_navigation_menu.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/menu/bottom_navigation_menu.xml	(date 1642067997196)
+@@ -2,11 +2,11 @@
+ <menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/home"
+         android:title="Home"
+-        android:icon="@drawable/ic_baseline_home_24"/>
++        android:icon="@drawable/ic_home"/>
+ 
+     <item android:id="@+id/profileFragment"
+         android:title="Profile"
+-        android:icon="@drawable/ic_baseline_home_24"/>
++        android:icon="@drawable/ic_person"/>
+ 
+ <!--    <item android:id="@+id/"-->
+ <!--        android:title="Home"-->
+Index: app/src/main/res/drawable/ic_favorite_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:height=\"24dp\" android:tint=\"#FFFFFF\"\r\n    android:viewportHeight=\"24\" android:viewportWidth=\"24\"\r\n    android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M16.5,3c-1.74,0 -3.41,0.81 -4.5,2.09C10.91,3.81 9.24,3 7.5,3 4.42,3 2,5.42 2,8.5c0,3.78 3.4,6.86 8.55,11.54L12,21.35l1.45,-1.32C18.6,15.36 22,12.28 22,8.5 22,5.42 19.58,3 16.5,3zM12.1,18.55l-0.1,0.1 -0.1,-0.1C7.14,14.24 4,11.39 4,8.5 4,6.5 5.5,5 7.5,5c1.54,0 3.04,0.99 3.57,2.36h1.87C13.46,5.99 14.96,5 16.5,5c2,0 3.5,1.5 3.5,3.5 0,2.89 -3.14,5.74 -7.9,10.05z\"/>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_favorite_1.xml b/app/src/main/res/drawable/ic_favorite_1.xml
+--- a/app/src/main/res/drawable/ic_favorite_1.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/drawable/ic_favorite_1.xml	(date 1642066392398)
+@@ -1,5 +1,10 @@
+-<vector android:height="24dp" android:tint="#FFFFFF"
+-    android:viewportHeight="24" android:viewportWidth="24"
+-    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+-    <path android:fillColor="@android:color/white" android:pathData="M16.5,3c-1.74,0 -3.41,0.81 -4.5,2.09C10.91,3.81 9.24,3 7.5,3 4.42,3 2,5.42 2,8.5c0,3.78 3.4,6.86 8.55,11.54L12,21.35l1.45,-1.32C18.6,15.36 22,12.28 22,8.5 22,5.42 19.58,3 16.5,3zM12.1,18.55l-0.1,0.1 -0.1,-0.1C7.14,14.24 4,11.39 4,8.5 4,6.5 5.5,5 7.5,5c1.54,0 3.04,0.99 3.57,2.36h1.87C13.46,5.99 14.96,5 16.5,5c2,0 3.5,1.5 3.5,3.5 0,2.89 -3.14,5.74 -7.9,10.05z"/>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M16.5,3c-1.74,0 -3.41,0.81 -4.5,2.09C10.91,3.81 9.24,3 7.5,3 4.42,3 2,5.42 2,8.5c0,3.78 3.4,6.86 8.55,11.54L12,21.35l1.45,-1.32C18.6,15.36 22,12.28 22,8.5 22,5.42 19.58,3 16.5,3zM12.1,18.55l-0.1,0.1 -0.1,-0.1C7.14,14.24 4,11.39 4,8.5 4,6.5 5.5,5 7.5,5c1.54,0 3.04,0.99 3.57,2.36h1.87C13.46,5.99 14.96,5 16.5,5c2,0 3.5,1.5 3.5,3.5 0,2.89 -3.14,5.74 -7.9,10.05z" />
+ </vector>
+Index: app/src/main/res/drawable/ic_person.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:height=\"24dp\" android:tint=\"#FFFFFF\"\r\n    android:viewportHeight=\"24\" android:viewportWidth=\"24\"\r\n    android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M12,5.9c1.16,0 2.1,0.94 2.1,2.1s-0.94,2.1 -2.1,2.1S9.9,9.16 9.9,8s0.94,-2.1 2.1,-2.1m0,9c2.97,0 6.1,1.46 6.1,2.1v1.1L5.9,18.1L5.9,17c0,-0.64 3.13,-2.1 6.1,-2.1M12,4C9.79,4 8,5.79 8,8s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4zM12,13c-2.67,0 -8,1.34 -8,4v3h16v-3c0,-2.66 -5.33,-4 -8,-4z\"/>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_person.xml b/app/src/main/res/drawable/ic_person.xml
+--- a/app/src/main/res/drawable/ic_person.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/drawable/ic_person.xml	(date 1642066372880)
+@@ -1,5 +1,10 @@
+-<vector android:height="24dp" android:tint="#FFFFFF"
+-    android:viewportHeight="24" android:viewportWidth="24"
+-    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+-    <path android:fillColor="@android:color/white" android:pathData="M12,5.9c1.16,0 2.1,0.94 2.1,2.1s-0.94,2.1 -2.1,2.1S9.9,9.16 9.9,8s0.94,-2.1 2.1,-2.1m0,9c2.97,0 6.1,1.46 6.1,2.1v1.1L5.9,18.1L5.9,17c0,-0.64 3.13,-2.1 6.1,-2.1M12,4C9.79,4 8,5.79 8,8s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4zM12,13c-2.67,0 -8,1.34 -8,4v3h16v-3c0,-2.66 -5.33,-4 -8,-4z"/>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M12,5.9c1.16,0 2.1,0.94 2.1,2.1s-0.94,2.1 -2.1,2.1S9.9,9.16 9.9,8s0.94,-2.1 2.1,-2.1m0,9c2.97,0 6.1,1.46 6.1,2.1v1.1L5.9,18.1L5.9,17c0,-0.64 3.13,-2.1 6.1,-2.1M12,4C9.79,4 8,5.79 8,8s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4zM12,13c-2.67,0 -8,1.34 -8,4v3h16v-3c0,-2.66 -5.33,-4 -8,-4z" />
+ </vector>
+Index: app/src/main/res/drawable/ic_favorite_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:height=\"24dp\" android:tint=\"#FFFFFF\"\r\n    android:viewportHeight=\"24\" android:viewportWidth=\"24\"\r\n    android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M12,21.35l-1.45,-1.32C5.4,15.36 2,12.28 2,8.5 2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3 19.58,3 22,5.42 22,8.5c0,3.78 -3.4,6.86 -8.55,11.54L12,21.35z\"/>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_favorite_2.xml b/app/src/main/res/drawable/ic_favorite_2.xml
+--- a/app/src/main/res/drawable/ic_favorite_2.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/app/src/main/res/drawable/ic_favorite_2.xml	(date 1642066388762)
+@@ -1,5 +1,10 @@
+-<vector android:height="24dp" android:tint="#FFFFFF"
+-    android:viewportHeight="24" android:viewportWidth="24"
+-    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+-    <path android:fillColor="@android:color/white" android:pathData="M12,21.35l-1.45,-1.32C5.4,15.36 2,12.28 2,8.5 2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3 19.58,3 22,5.42 22,8.5c0,3.78 -3.4,6.86 -8.55,11.54L12,21.35z"/>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M12,21.35l-1.45,-1.32C5.4,15.36 2,12.28 2,8.5 2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3 19.58,3 22,5.42 22,8.5c0,3.78 -3.4,6.86 -8.55,11.54L12,21.35z" />
+ </vector>
+Index: app/src/main/res/drawable/ic_close.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_close.xml b/app/src/main/res/drawable/ic_close.xml
+new file mode 100644
+--- /dev/null	(date 1642070252735)
++++ b/app/src/main/res/drawable/ic_close.xml	(date 1642070252735)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="@color/green1"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M19,6.41L17.59,5 12,10.59 6.41,5 5,6.41 10.59,12 5,17.59 6.41,19 12,13.41 17.59,19 19,17.59 13.41,12z" />
++</vector>
+Index: app/src/main/res/drawable/ic_logout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_logout.xml b/app/src/main/res/drawable/ic_logout.xml
+new file mode 100644
+--- /dev/null	(date 1642066987079)
++++ b/app/src/main/res/drawable/ic_logout.xml	(date 1642066987079)
+@@ -0,0 +1,11 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:autoMirrored="true"
++    android:tint="@color/green1"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M17,7l-1.41,1.41L18.17,11H8v2h10.17l-2.58,2.58L17,17l5,-5zM4,5h8V3H4c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h8v-2H4V5z" />
++</vector>
+Index: .idea/assetWizardSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"WizardSettings\">\r\n    <option name=\"children\">\r\n      <map>\r\n        <entry key=\"vectorWizard\">\r\n          <value>\r\n            <PersistentState>\r\n              <option name=\"children\">\r\n                <map>\r\n                  <entry key=\"vectorAssetStep\">\r\n                    <value>\r\n                      <PersistentState>\r\n                        <option name=\"children\">\r\n                          <map>\r\n                            <entry key=\"clipartAsset\">\r\n                              <value>\r\n                                <PersistentState>\r\n                                  <option name=\"values\">\r\n                                    <map>\r\n                                      <entry key=\"url\" value=\"file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/add/baseline_add_24.xml\" />\r\n                                    </map>\r\n                                  </option>\r\n                                </PersistentState>\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                        <option name=\"values\">\r\n                          <map>\r\n                            <entry key=\"color\" value=\"ffffff\" />\r\n                            <entry key=\"outputName\" value=\"ic_add\" />\r\n                            <entry key=\"sourceFile\" value=\"C:\\Users\\rino0\\Downloads\\user_profile.svg\" />\r\n                          </map>\r\n                        </option>\r\n                      </PersistentState>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </PersistentState>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/assetWizardSettings.xml b/.idea/assetWizardSettings.xml
+--- a/.idea/assetWizardSettings.xml	(revision f4275506f9fcbb98485277788de8b6fb9ef6062a)
++++ b/.idea/assetWizardSettings.xml	(date 1642070343933)
+@@ -18,7 +18,7 @@
+                                 <PersistentState>
+                                   <option name="values">
+                                     <map>
+-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/add/baseline_add_24.xml" />
++                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/close/baseline_close_24.xml" />
+                                     </map>
+                                   </option>
+                                 </PersistentState>
+@@ -29,7 +29,7 @@
+                         <option name="values">
+                           <map>
+                             <entry key="color" value="ffffff" />
+-                            <entry key="outputName" value="ic_add" />
++                            <entry key="outputName" value="ic_close" />
+                             <entry key="sourceFile" value="C:\Users\rino0\Downloads\user_profile.svg" />
+                           </map>
+                         </option>
+Index: .idea/Project-01.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Project-01.iml b/.idea/Project-01.iml
+new file mode 100644
+--- /dev/null	(date 1642064990761)
++++ b/.idea/Project-01.iml	(date 1642064990761)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: app/src/main/res/layout/post_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/post_item.xml b/app/src/main/res/layout/post_item.xml
+new file mode 100644
+--- /dev/null	(date 1642072214627)
++++ b/app/src/main/res/layout/post_item.xml	(date 1642072214627)
+@@ -0,0 +1,63 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <ImageButton
++        android:id="@+id/closeButton"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@android:color/transparent"
++        android:padding="10dp"
++        android:src="@drawable/ic_close"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <ImageButton
++        android:id="@+id/cameraButton"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="7dp"
++        android:background="@android:color/transparent"
++        android:padding="10dp"
++        android:src="@drawable/ic_camera"
++        app:layout_constraintEnd_toStartOf="@+id/postButton"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <Button
++        android:id="@+id/postButton"
++        style="?attr/materialButtonOutlinedStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="5dp"
++        android:layout_marginEnd="5dp"
++        android:text="Post"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <de.hdodenhof.circleimageview.CircleImageView
++        android:id="@+id/profileImageView"
++        android:layout_width="27dp"
++        android:layout_height="27dp"
++        android:layout_marginTop="5dp"
++        android:layout_marginStart="10dp"
++        android:src="@drawable/ic_user_profile"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/closeButton" />
++
++    <EditText
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="40dp"
++        android:layout_marginTop="40dp"
++        android:layout_marginEnd="10dp"
++        android:hint="What's happening?"
++        android:textSize="18dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_share.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_share.xml b/app/src/main/res/drawable/ic_share.xml
+new file mode 100644
+--- /dev/null	(date 1642067086960)
++++ b/app/src/main/res/drawable/ic_share.xml	(date 1642067086960)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z" />
++</vector>
+Index: app/src/main/res/drawable/ic_camera.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_camera.xml b/app/src/main/res/drawable/ic_camera.xml
+new file mode 100644
+--- /dev/null	(date 1642072069415)
++++ b/app/src/main/res/drawable/ic_camera.xml	(date 1642072069415)
+@@ -0,0 +1,13 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="@color/green1"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M12,12m-3.2,0a3.2,3.2 0,1 1,6.4 0a3.2,3.2 0,1 1,-6.4 0" />
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M9,2L7.17,4L4,4c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,6c0,-1.1 -0.9,-2 -2,-2h-3.17L15,2L9,2zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5z" />
++</vector>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1642069043889)
++++ b/.idea/gradle.xml	(date 1642069043889)
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="GRADLE" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="11" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++        <option name="resolveModulePerSourceSet" value="false" />
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1642064990837)
++++ b/.idea/compiler.xml	(date 1642064990837)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="11" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1642064990825)
++++ b/.idea/vcs.xml	(date 1642064990825)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1642073096155)
++++ b/.idea/misc.xml	(date 1642073096155)
+@@ -0,0 +1,30 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DesignSurface">
++    <option name="filePathToZoomLevelMap">
++      <map>
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_add.xml" value="0.1" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_camera.xml" value="0.16197916666666667" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_close.xml" value="0.16197916666666667" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_favorite_1.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_favorite_2.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_home.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_lock.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_logout.xml" value="0.22" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_person.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_share.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/drawable/ic_user_profile.xml" value="0.14739583333333334" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/activity_main.xml" value="0.22" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/home_fragment.xml" value="0.1" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/login_fragment.xml" value="0.13333333333333333" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/post_item.xml" value="0.5" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/profile_fragment.xml" value="0.23183925811437403" />
++        <entry key="..\:/Users/rino0/Desktop/2/Project-01/app/src/main/res/layout/signup_fragment.xml" value="0.1" />
++      </map>
++    </option>
++  </component>
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
++</project>
+\ No newline at end of file

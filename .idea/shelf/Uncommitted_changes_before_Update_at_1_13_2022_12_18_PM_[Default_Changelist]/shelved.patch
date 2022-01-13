@@ -1,0 +1,1347 @@
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646635)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml	(date 1642064646635)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-runtime:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1879140a2ac9929b140ecbd99f3725a7/transformed/navigation-runtime-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1879140a2ac9929b140ecbd99f3725a7/transformed/navigation-runtime-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1879140a2ac9929b140ecbd99f3725a7/transformed/navigation-runtime-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.5/4f74ea56cca52bece088c25ea260082a3b264d38/navigation-runtime-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646627)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml	(date 1642064646627)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-runtime-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ecc8177f522045f16eecad5a5c65c307/transformed/navigation-runtime-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ecc8177f522045f16eecad5a5c65c307/transformed/navigation-runtime-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ecc8177f522045f16eecad5a5c65c307/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime-ktx/2.3.5/4d2da12a557444e5706dd6ca99f059ec099a45de/navigation-runtime-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646618)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml	(date 1642064646618)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-ui:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bafe8ece8bce741eaf5529ee6a134102/transformed/navigation-ui-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bafe8ece8bce741eaf5529ee6a134102/transformed/navigation-ui-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bafe8ece8bce741eaf5529ee6a134102/transformed/navigation-ui-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-ui/2.3.5/c3b1c72fb42a6c6ea70970fa444614a2aaa64742/navigation-ui-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646610)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml	(date 1642064646610)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-ui-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/7f06ab9f7bef47eaa3e8aba8b690b3d6/transformed/navigation-ui-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7f06ab9f7bef47eaa3e8aba8b690b3d6/transformed/navigation-ui-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7f06ab9f7bef47eaa3e8aba8b690b3d6/transformed/navigation-ui-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-ui-ktx/2.3.5/407dd936012d5b65b0af3e897ea62e436a811419/navigation-ui-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/navEditor.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/navEditor.xml b/.idea/navEditor.xml
+new file mode 100644
+--- /dev/null	(date 1642064646672)
++++ b/.idea/navEditor.xml	(date 1642064646672)
+@@ -0,0 +1,85 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="navEditor-manualLayoutAlgorithm2">
++    <option name="myPositions">
++      <map>
++        <entry key="nav_graph.xml">
++          <value>
++            <LayoutPositions>
++              <option name="myPositions">
++                <map>
++                  <entry key="homeFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="-61" />
++                            <option name="y" value="330" />
++                          </Point>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="loginFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="-57" />
++                            <option name="y" value="-32" />
++                          </Point>
++                        </option>
++                        <option name="myPositions">
++                          <map>
++                            <entry key="action_loginFragment_to_signupFragment">
++                              <value>
++                                <LayoutPositions />
++                              </value>
++                            </entry>
++                          </map>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="profileFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="174" />
++                            <option name="y" value="331" />
++                          </Point>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="signupFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="186" />
++                            <option name="y" value="35" />
++                          </Point>
++                        </option>
++                        <option name="myPositions">
++                          <map>
++                            <entry key="action_signupFragment_to_loginFragment">
++                              <value>
++                                <LayoutPositions />
++                              </value>
++                            </entry>
++                          </map>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </LayoutPositions>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml b/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646652)
++++ b/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml	(date 1642064646652)
+@@ -0,0 +1,16 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.transition:transition:1.3.0@aar">
++    <ANNOTATIONS>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/annotations.zip!/" />
++    </ANNOTATIONS>
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fc12900dd365a0336d44c21ede0084c6/transformed/transition-1.3.0/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.transition/transition/1.3.0/1ab749fa90feb756d9cd154f76fce1d8e557cae/transition-1.3.0-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: app/src/main/res/navigation/nav_graph.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/navigation/nav_graph.xml b/app/src/main/res/navigation/nav_graph.xml
+new file mode 100644
+--- /dev/null	(date 1642064646644)
++++ b/app/src/main/res/navigation/nav_graph.xml	(date 1642064646644)
+@@ -0,0 +1,39 @@
++<?xml version="1.0" encoding="utf-8"?>
++<navigation xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/nav_graph"
++    app:startDestination="@id/homeFragment">
++
++    <fragment
++        android:id="@+id/loginFragment"
++        android:name="com.tuwaiq.rr.presentation.auth.LoginFragment"
++        android:label="LoginFragment" >
++        <action
++            android:id="@+id/action_loginFragment_to_signupFragment"
++            app:destination="@id/signupFragment" />
++    </fragment>
++    <fragment
++        android:id="@+id/signupFragment"
++        android:name="com.tuwaiq.rr.presentation.auth.SignupFragment"
++        android:label="signup_fragment"
++        tools:layout="@layout/signup_fragment" >
++        <action
++            android:id="@+id/action_signupFragment_to_loginFragment"
++            app:destination="@id/loginFragment" />
++    </fragment>
++    <fragment
++        android:id="@+id/homeFragment"
++        android:name="com.tuwaiq.rr.presentation.home.HomeFragment"
++        android:label="home_fragment"
++        tools:layout="@layout/home_fragment" >
++        <action
++            android:id="@+id/action_homeFragment_to_profileFragment"
++            app:destination="@id/profileFragment" />
++    </fragment>
++    <fragment
++        android:id="@+id/profileFragment"
++        android:name="com.tuwaiq.rr.presentation.profile.ProfileFragment"
++        android:label="profile_fragment"
++        tools:layout="@layout/profile_fragment" />
++</navigation>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_home.xml b/app/src/main/res/drawable/ic_home.xml
+new file mode 100644
+--- /dev/null	(date 1642064646706)
++++ b/app/src/main/res/drawable/ic_home.xml	(date 1642064646706)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_lock.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_lock.xml b/app/src/main/res/drawable/ic_lock.xml
+new file mode 100644
+--- /dev/null	(date 1642064646698)
++++ b/app/src/main/res/drawable/ic_lock.xml	(date 1642064646698)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M18,8h-1L17,6c0,-2.76 -2.24,-5 -5,-5S7,3.24 7,6v2L6,8c-1.1,0 -2,0.9 -2,2v10c0,1.1 0.9,2 2,2h12c1.1,0 2,-0.9 2,-2L20,10c0,-1.1 -0.9,-2 -2,-2zM12,17c-1.1,0 -2,-0.9 -2,-2s0.9,-2 2,-2 2,0.9 2,2 -0.9,2 -2,2zM15.1,8L8.9,8L8.9,6c0,-1.71 1.39,-3.1 3.1,-3.1 1.71,0 3.1,1.39 3.1,3.1v2z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_person.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_person.xml b/app/src/main/res/drawable/ic_person.xml
+new file mode 100644
+--- /dev/null	(date 1642064646689)
++++ b/app/src/main/res/drawable/ic_person.xml	(date 1642064646689)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M12,5.9c1.16,0 2.1,0.94 2.1,2.1s-0.94,2.1 -2.1,2.1S9.9,9.16 9.9,8s0.94,-2.1 2.1,-2.1m0,9c2.97,0 6.1,1.46 6.1,2.1v1.1L5.9,18.1L5.9,17c0,-0.64 3.13,-2.1 6.1,-2.1M12,4C9.79,4 8,5.79 8,8s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4zM12,13c-2.67,0 -8,1.34 -8,4v3h16v-3c0,-2.66 -5.33,-4 -8,-4z"/>
++</vector>
+Index: app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuwaiq.rr.presentation\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.tuwaiq.rr.R\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt b/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt
+--- a/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/java/com/tuwaiq/rr/presentation/MainActivity.kt	(date 1642064646664)
+@@ -3,10 +3,17 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import com.tuwaiq.rr.R
++import com.tuwaiq.rr.databinding.ActivityMainBinding
+ 
+ class MainActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivityMainBinding
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_main)
++        binding = ActivityMainBinding.inflate(layoutInflater)
++        val view = binding.root
++        setContentView(view)
++
++        binding.bottomNavigationView.background = null
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_favorite_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_favorite_1.xml b/app/src/main/res/drawable/ic_favorite_1.xml
+new file mode 100644
+--- /dev/null	(date 1642064646680)
++++ b/app/src/main/res/drawable/ic_favorite_1.xml	(date 1642064646680)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M16.5,3c-1.74,0 -3.41,0.81 -4.5,2.09C10.91,3.81 9.24,3 7.5,3 4.42,3 2,5.42 2,8.5c0,3.78 3.4,6.86 8.55,11.54L12,21.35l1.45,-1.32C18.6,15.36 22,12.28 22,8.5 22,5.42 19.58,3 16.5,3zM12.1,18.55l-0.1,0.1 -0.1,-0.1C7.14,14.24 4,11.39 4,8.5 4,6.5 5.5,5 7.5,5c1.54,0 3.04,0.99 3.57,2.36h1.87C13.46,5.99 14.96,5 16.5,5c2,0 3.5,1.5 3.5,3.5 0,2.89 -3.14,5.74 -7.9,10.05z"/>
++</vector>
+Index: app/src/main/res/menu/bottom_navigation_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/menu/bottom_navigation_menu.xml b/app/src/main/res/menu/bottom_navigation_menu.xml
+new file mode 100644
+--- /dev/null	(date 1642064646755)
++++ b/app/src/main/res/menu/bottom_navigation_menu.xml	(date 1642064646755)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:id="@+id/home"
++        android:title="Home"
++        android:icon="@drawable/ic_baseline_home_24"/>
++
++    <item android:id="@+id/profileFragment"
++        android:title="Profile"
++        android:icon="@drawable/ic_baseline_home_24"/>
++
++<!--    <item android:id="@+id/"-->
++<!--        android:title="Home"-->
++<!--        android:icon="@drawable/ic_baseline_home_24"/>-->
++
++</menu>
+\ No newline at end of file
+Index: app/src/main/res/values-night/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values-night/colors.xml b/app/src/main/res/values-night/colors.xml
+new file mode 100644
+--- /dev/null	(date 1642064646746)
++++ b/app/src/main/res/values-night/colors.xml	(date 1642064646746)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="purple_200">#FFBB86FC</color>
++    <color name="purple_500">#FF6200EE</color>
++    <color name="purple_700">#FF3700B3</color>
++    <color name="teal_200">#FF03DAC5</color>
++    <color name="teal_700">#FF018786</color>
++    <color name="Primary">#FFFFFFFF</color>
++    <color name="Secondary">#FF000000</color>
++    <color name="green1">#8AD189</color>
++    <color name="green2">#70BD6E</color>
++    <color name="green3">#37B173</color>
++    <color name="green4">#1C5739</color>
++
++</resources>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'kotlin-android'\r\n    id 'kotlin-kapt'\r\n    id 'dagger.hilt.android.plugin'\r\n}\r\n\r\nkapt {\r\n    correctErrorTypes true\r\n}\r\n\r\n\r\n\r\nandroid {\r\n    compileSdk 31\r\n\r\n    defaultConfig {\r\n        applicationId \"com.tuwaiq.rr\"\r\n        minSdk 30\r\n        targetSdk 31\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    viewBinding{\r\n        enabled = true\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.7.0'\r\n    implementation 'androidx.appcompat:appcompat:1.4.0'\r\n    implementation 'com.google.android.material:material:1.4.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'\r\n    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'\r\n    testImplementation 'junit:junit:4.+'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n\r\n    // Coroutine Lifecycle Scopes\r\n    implementation \"androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0\"\r\n    implementation \"androidx.lifecycle:lifecycle-runtime-ktx:2.4.0\"\r\n\r\n\r\n    //Dagger - Hilt\r\n    implementation 'com.google.dagger:hilt-android:2.40.5'\r\n    kapt 'com.google.dagger:hilt-compiler:2.40.5'\r\n    implementation \"androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03\"\r\n    kapt \"androidx.hilt:hilt-compiler:1.0.0\"\r\n\r\n    // Activity KTX for viewModels()\r\n    implementation \"androidx.activity:activity-ktx:1.4.0\"\r\n\r\n    //material\r\n    implementation \"com.google.android.material:material:1.6.0-alpha01\"\r\n\r\n    //Circle imageview\r\n    implementation 'de.hdodenhof:circleimageview:3.1.0'\r\n\r\n    //Camera and image picker\r\n    implementation 'com.sandrios.android:sandriosCamera:1.2.6'\r\n\r\n    //Glide\r\n    implementation 'com.github.bumptech.glide:glide:4.12.0'\r\n    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'\r\n\r\n    //Floating action button\r\n    implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/build.gradle	(date 1642064646515)
+@@ -16,7 +16,7 @@
+ 
+     defaultConfig {
+         applicationId "com.tuwaiq.rr"
+-        minSdk 30
++        minSdk 29
+         targetSdk 31
+         versionCode 1
+         versionName "1.0"
+@@ -86,4 +86,8 @@
+     //Floating action button
+     implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+ 
++    //nav_graph
++    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
++    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
++
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_favorite_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_favorite_2.xml b/app/src/main/res/drawable/ic_favorite_2.xml
+new file mode 100644
+--- /dev/null	(date 1642064646727)
++++ b/app/src/main/res/drawable/ic_favorite_2.xml	(date 1642064646727)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FFFFFF"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M12,21.35l-1.45,-1.32C5.4,15.36 2,12.28 2,8.5 2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3 19.58,3 22,5.42 22,8.5c0,3.78 -3.4,6.86 -8.55,11.54L12,21.35z"/>
++</vector>
+Index: .idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml b/.idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml
+new file mode 100644
+--- /dev/null	(date 1642064646808)
++++ b/.idea/libraries/Gradle__androidx_collection_collection_ktx_1_1_0.xml	(date 1642064646808)
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.collection:collection-ktx:1.1.0">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-ktx/1.1.0/f807b2f366f7b75142a67d2f3c10031065b5168/collection-ktx-1.1.0.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-ktx/1.1.0/dd245d312c270a48386e9435e385480743578e9b/collection-ktx-1.1.0-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml b/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646799)
++++ b/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml	(date 1642064646799)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.fragment:fragment-ktx:1.2.4@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fac44fc3ef5da7da9178da6e33491790/transformed/jetified-fragment-ktx-1.2.4/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fac44fc3ef5da7da9178da6e33491790/transformed/jetified-fragment-ktx-1.2.4/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fac44fc3ef5da7da9178da6e33491790/transformed/jetified-fragment-ktx-1.2.4/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment-ktx/1.2.4/1ffa885329ceba2ceb2bea1253d2ca32a0c95fa7/fragment-ktx-1.2.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/assetWizardSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/assetWizardSettings.xml b/.idea/assetWizardSettings.xml
+new file mode 100644
+--- /dev/null	(date 1642065164977)
++++ b/.idea/assetWizardSettings.xml	(date 1642065164977)
+@@ -0,0 +1,47 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="WizardSettings">
++    <option name="children">
++      <map>
++        <entry key="vectorWizard">
++          <value>
++            <PersistentState>
++              <option name="children">
++                <map>
++                  <entry key="vectorAssetStep">
++                    <value>
++                      <PersistentState>
++                        <option name="children">
++                          <map>
++                            <entry key="clipartAsset">
++                              <value>
++                                <PersistentState>
++                                  <option name="values">
++                                    <map>
++                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/add/baseline_add_24.xml" />
++                                    </map>
++                                  </option>
++                                </PersistentState>
++                              </value>
++                            </entry>
++                          </map>
++                        </option>
++                        <option name="values">
++                          <map>
++                            <entry key="color" value="ffffff" />
++                            <entry key="outputName" value="ic_add" />
++                            <entry key="sourceFile" value="C:\Users\rino0\Downloads\user_profile.svg" />
++                          </map>
++                        </option>
++                      </PersistentState>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </PersistentState>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_user_profile.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_user_profile.xml b/app/src/main/res/drawable/ic_user_profile.xml
+new file mode 100644
+--- /dev/null	(date 1642064646783)
++++ b/app/src/main/res/drawable/ic_user_profile.xml	(date 1642064646783)
+@@ -0,0 +1,23 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="600dp"
++    android:height="600dp"
++    android:viewportWidth="600"
++    android:viewportHeight="600">
++  <group>
++    <clip-path
++        android:pathData="M0,0h600v498h-600z"/>
++    <path
++        android:pathData="M300,300m-280,0a280,280 0,1 1,560 0a280,280 0,1 1,-560 0"
++        android:fillColor="@color/green1"/>
++  </group>
++  <path
++      android:pathData="M300,230m-115,0a115,115 0,1 1,230 0a115,115 0,1 1,-230 0"
++      android:fillColor="@color/Secondary"/>
++  <group>
++    <clip-path
++        android:pathData="M300,300m-280,0a280,280 0,1 1,560 0a280,280 0,1 1,-560 0"/>
++    <path
++        android:pathData="M300,550m-205,0a205,205 0,1 1,410 0a205,205 0,1 1,-410 0"
++        android:fillColor="@color/Secondary"/>
++  </group>
++</vector>
+Index: app/src/main/res/layout/login_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.LoginFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/login_fragment.xml b/app/src/main/res/layout/login_fragment.xml
+--- a/app/src/main/res/layout/login_fragment.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/layout/login_fragment.xml	(date 1642064646528)
+@@ -1,13 +1,121 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".presentation.LoginFragment">
++    tools:context=".presentation.auth.LoginFragment">
+ 
+     <TextView
++        android:id="@+id/appName"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="80dp"
++        android:text="RR Project"
++        android:textColor="@color/green1"
++        android:textSize="40sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/emailInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:text="Hello" />
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="35dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Email"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/appName"
++        app:startIconDrawable="@drawable/ic_person">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/emailInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/passwordInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Password"
++        app:endIconMode="password_toggle"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout"
++        app:startIconDrawable="@drawable/ic_lock">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/passwordInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:inputType="textPassword" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <Button
++        android:id="@+id/loginButton"
++        style="?attr/materialButtonOutlinedStyle"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="25dp"
++        android:layout_marginEnd="35dp"
++        android:text="Log in"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
+ 
+-</FrameLayout>
+\ No newline at end of file
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="45dp"
++        android:text="Forgot Password?"
++        android:textColor="@color/green1"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
++
++    <View
++        android:layout_width="match_parent"
++        android:layout_height="2dp"
++        android:layout_marginBottom="25dp"
++        android:background="@color/gray"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="25dp"
++        android:gravity="center_vertical"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent">
++
++        <TextView
++            android:id="@+id/DoNotHaveAnAccount"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Don't have an account?"
++            android:textSize="20sp" />
++
++        <TextView
++            android:id="@+id/signUpText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="10dp"
++            android:clickable="true"
++            android:text="Sign Up."
++            android:textColor="@color/green1"
++            android:textSize="20sp" />
++    </LinearLayout>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.MainActivity\">\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Hello World!\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        app:layout_constraintRight_toRightOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1642065442583)
+@@ -1,18 +1,48 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".presentation.MainActivity">
+ 
+-    <TextView
++
++<!--    <androidx.fragment.app.FragmentContainerView-->
++<!--        android:id="@+id/fragmentContainerView"-->
++<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
++<!--        android:layout_width="match_parent"-->
++<!--        android:layout_height="wrap_content"-->
++<!--        app:defaultNavHost="true"-->
++<!--        app:layout_constraintBottom_toBottomOf="parent"-->
++<!--        app:layout_constraintEnd_toEndOf="parent"-->
++<!--        app:layout_constraintStart_toStartOf="parent"-->
++<!--        app:layout_constraintTop_toTopOf="parent"-->
++<!--        app:navGraph="@navigation/nav_graph" />-->
++
++    <com.google.android.material.bottomappbar.BottomAppBar
++        android:id="@+id/bottomAppBar"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_gravity="bottom"
++        app:fabCradleMargin="10dp"
++        app:fabCradleRoundedCornerRadius="20dp"
++        app:fabCradleVerticalOffset="5dp">
++
++        <com.google.android.material.bottomnavigation.BottomNavigationView
++            android:id="@+id/bottomNavigationView"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginEnd="16dp"
++            android:background="@android:color/transparent"
++            app:menu="@menu/bottom_navigation_menu" />
++    </com.google.android.material.bottomappbar.BottomAppBar>
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/fab"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Hello World!"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintLeft_toLeftOf="parent"
+-        app:layout_constraintRight_toRightOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:src="@drawable/ic_add"
++        app:layout_anchor="@id/bottomAppBar" />
++
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/profile_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.profile.ProfileFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/profile_fragment.xml b/app/src/main/res/layout/profile_fragment.xml
+--- a/app/src/main/res/layout/profile_fragment.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/layout/profile_fragment.xml	(date 1642064646539)
+@@ -1,13 +1,55 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".presentation.profile.ProfileFragment">
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    tools:context=".presentation.profile.ProfileFragment"
++    android:id="@+id/profileFragment">
+ 
+-    <TextView
++    <View
++        android:id="@+id/line"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:text="Hello" />
++        android:layout_height="2dp"
++        android:layout_marginBottom="25dp"
++        android:layout_marginTop="60dp"
++        android:background="@color/gray"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <de.hdodenhof.circleimageview.CircleImageView
++        android:id="@+id/profileImageView"
++        android:layout_width="100dp"
++        android:layout_height="100dp"
++        android:layout_marginTop="60dp"
++        android:src="@drawable/ic_user_profile"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/line" />
+ 
+-</FrameLayout>
+\ No newline at end of file
++    <TextView
++        android:id="@+id/nameText"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:clickable="true"
++        android:text="Name"
++        android:textColor="@color/green1"
++        android:textSize="30sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/profileImageView" />
++
++    <TextView
++        android:id="@+id/usernameText"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:clickable="true"
++        android:text="\@username"
++        android:textColor="@color/gray"
++        android:textSize="25sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/nameText" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"purple_200\">#FFBB86FC</color>\r\n    <color name=\"purple_500\">#FF6200EE</color>\r\n    <color name=\"purple_700\">#FF3700B3</color>\r\n    <color name=\"teal_200\">#FF03DAC5</color>\r\n    <color name=\"teal_700\">#FF018786</color>\r\n    <color name=\"black\">#FF000000</color>\r\n    <color name=\"white\">#FFFFFFFF</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/values/colors.xml	(date 1642064646737)
+@@ -5,6 +5,12 @@
+     <color name="purple_700">#FF3700B3</color>
+     <color name="teal_200">#FF03DAC5</color>
+     <color name="teal_700">#FF018786</color>
+-    <color name="black">#FF000000</color>
+-    <color name="white">#FFFFFFFF</color>
++    <color name="Primary">#FF000000</color>
++    <color name="Secondary">#FFFFFFFF</color>
++    <color name="green1">#1C5739</color>
++    <color name="green2">#37B173</color>
++    <color name="green3">#70BD6E</color>
++    <color name="green4">#8AD189</color>
++    <color name="gray">#7B7C7B</color>
++
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/signup_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.auth.SignupFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/signup_fragment.xml b/app/src/main/res/layout/signup_fragment.xml
+--- a/app/src/main/res/layout/signup_fragment.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/layout/signup_fragment.xml	(date 1642064922694)
+@@ -1,13 +1,184 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/signupFragment"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".presentation.auth.SignupFragment">
+ 
++    <ImageButton
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:src="@drawable/ic_arrow_back"
++        android:padding="10dp"
++        android:background="@android:color/transparent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/appName"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="50dp"
++        android:text="Registration"
++        android:textColor="@color/green1"
++        android:textSize="30sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <TextView
++        android:id="@+id/userInfo"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="40dp"
++        android:text="Enter your information"
++        android:textColor="@color/green1"
++        android:textSize="20sp"
++        android:textStyle="bold"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/appName" />
++
++    <View
++        android:id="@+id/line"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:text="Hello" />
++        android:layout_height="2dp"
++        android:layout_marginStart="35dp"
++        android:layout_marginEnd="35dp"
++        android:layout_marginBottom="25dp"
++        android:background="@color/gray"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/userInfo" />
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/nameInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="35dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Name"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/line">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/nameInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/usernameInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="UserName"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/nameInputLayout">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/usernameInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/emailInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Email"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/emailInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/passwordInputLayout"
++        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="35dp"
++        android:hint="Password"
++        app:endIconMode="password_toggle"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/passwordInputEditText"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:inputType="textPassword" />
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <Button
++        android:id="@+id/loginButton"
++        style="?attr/materialButtonOutlinedStyle"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="35dp"
++        android:layout_marginTop="25dp"
++        android:layout_marginEnd="35dp"
++        android:text="Sign Up"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
++
++    <View
++        android:layout_width="match_parent"
++        android:layout_height="2dp"
++        android:layout_marginBottom="25dp"
++        android:background="@color/gray"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="25dp"
++        android:gravity="center_vertical"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent">
++
++        <TextView
++            android:id="@+id/HaveAnAccount"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Already have an account?"
++            android:textSize="20sp" />
++
++        <TextView
++            android:id="@+id/LogInText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="10dp"
++            android:clickable="true"
++            android:text="Log In."
++            android:textColor="@color/green1"
++            android:textSize="20sp" />
++    </LinearLayout>
+ 
+-</FrameLayout>
+\ No newline at end of file
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/home_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".presentation.home.HomeFragment\">\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:text=\"Hello\" />\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/home_fragment.xml b/app/src/main/res/layout/home_fragment.xml
+--- a/app/src/main/res/layout/home_fragment.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/layout/home_fragment.xml	(date 1642064646567)
+@@ -1,13 +1,18 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".presentation.home.HomeFragment">
++    tools:context=".presentation.home.HomeFragment"
++    android:id="@+id/home">
+ 
+-    <TextView
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/homeRecyclerView"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+-        android:text="Hello" />
+-
+-</FrameLayout>
+\ No newline at end of file
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.RR\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_500</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/white</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_700</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\" tools:targetApi=\"l\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+--- a/app/src/main/res/values/themes.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/values/themes.xml	(date 1642064646764)
+@@ -2,12 +2,12 @@
+     <!-- Base application theme. -->
+     <style name="Theme.RR" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_500</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorPrimary">#286E4A</item>
++        <item name="colorPrimaryVariant">#1C5739</item>
+         <item name="colorOnPrimary">@color/white</item>
+         <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_700</item>
++        <item name="colorSecondary">#70BD6E</item>
++        <item name="colorSecondaryVariant">#3F8E3D</item>
+         <item name="colorOnSecondary">@color/black</item>
+         <!-- Status bar color. -->
+         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+Index: local.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+diff --git a/local.properties b/local.properties
+new file mode 100644
+--- /dev/null	(date 1642064951244)
++++ b/local.properties	(date 1642064951244)
+@@ -0,0 +1,8 @@
++## This file must *NOT* be checked into Version Control Systems,
++# as it contains information specific to your local configuration.
++#
++# Location of the SDK. This is only used by Gradle.
++# For customization when using a Version Control System, please read the
++# header note.
++#Thu Jan 13 12:09:11 AST 2022
++sdk.dir=C\:\\Users\\rino0\\AppData\\Local\\Android\\Sdk
+Index: app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.RR\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_200</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/black</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_200</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\" tools:targetApi=\"l\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values-night/themes.xml b/app/src/main/res/values-night/themes.xml
+--- a/app/src/main/res/values-night/themes.xml	(revision e8dd31b4664f2bcb4a60b015826e66aa9192b310)
++++ b/app/src/main/res/values-night/themes.xml	(date 1642064646774)
+@@ -2,12 +2,12 @@
+     <!-- Base application theme. -->
+     <style name="Theme.RR" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_200</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorPrimary">#37B173</item>
++        <item name="colorPrimaryVariant">#1C5739</item>
+         <item name="colorOnPrimary">@color/black</item>
+         <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_200</item>
++        <item name="colorSecondary">#70BD6E</item>
++        <item name="colorSecondaryVariant">#8AD189</item>
+         <item name="colorOnSecondary">@color/black</item>
+         <!-- Status bar color. -->
+         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+Index: app/src/main/res/drawable/ic_add.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_add.xml b/app/src/main/res/drawable/ic_add.xml
+new file mode 100644
+--- /dev/null	(date 1642065365064)
++++ b/app/src/main/res/drawable/ic_add.xml	(date 1642065365064)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:tint="@color/Secondary"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@color/Secondary"
++        android:pathData="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
++</vector>
+Index: app/src/main/res/drawable/ic_arrow_back.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_arrow_back.xml b/app/src/main/res/drawable/ic_arrow_back.xml
+new file mode 100644
+--- /dev/null	(date 1642063330617)
++++ b/app/src/main/res/drawable/ic_arrow_back.xml	(date 1642063330617)
+@@ -0,0 +1,11 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:autoMirrored="true"
++    android:tint="@color/green1"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M11.67,3.87L9.9,2.1 0,12l9.9,9.9 1.77,-1.77L3.54,12z" />
++</vector>
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646601)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml	(date 1642064646601)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-common:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/95099bc3d638b52f00a8dd875227961e/transformed/navigation-common-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/95099bc3d638b52f00a8dd875227961e/transformed/navigation-common-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/95099bc3d638b52f00a8dd875227961e/transformed/navigation-common-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-common/2.3.5/8ac119554c336ee331c12b667b4e3f5f725616da/navigation-common-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646594)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml	(date 1642064646594)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-common-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f091b2e93554fca35bfbd193203f24f3/transformed/navigation-common-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f091b2e93554fca35bfbd193203f24f3/transformed/navigation-common-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f091b2e93554fca35bfbd193203f24f3/transformed/navigation-common-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-common-ktx/2.3.5/1a3ce7c2b9dcc97c1d25ef6ab8e016b5a76de983/navigation-common-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646584)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml	(date 1642064646584)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-fragment:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/729c04ad89619d65a4e53a3cd93848ca/transformed/navigation-fragment-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/729c04ad89619d65a4e53a3cd93848ca/transformed/navigation-fragment-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/729c04ad89619d65a4e53a3cd93848ca/transformed/navigation-fragment-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-fragment/2.3.5/3622ca880ed637740e391a55d7cd5d0869285d29/navigation-fragment-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml
+new file mode 100644
+--- /dev/null	(date 1642064646577)
++++ b/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml	(date 1642064646577)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Gradle: androidx.navigation:navigation-fragment-ktx:2.3.5@aar">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9678945f51599ae770f3072a699153e1/transformed/navigation-fragment-ktx-2.3.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9678945f51599ae770f3072a699153e1/transformed/navigation-fragment-ktx-2.3.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9678945f51599ae770f3072a699153e1/transformed/navigation-fragment-ktx-2.3.5/AndroidManifest.xml" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-fragment-ktx/2.3.5/9bebacd34921c1dd65c0cf5ceb32f70e8c7b17b9/navigation-fragment-ktx-2.3.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
