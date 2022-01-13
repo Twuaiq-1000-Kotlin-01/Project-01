@@ -1,5 +1,6 @@
 package com.tuwaiq.rr.presentation.auth
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tuwaiq.rr.domain.models.UserData
@@ -11,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val TAG = "AuthViewModel"
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val signupUseCase:SignupUsecase,
@@ -27,6 +29,7 @@ class AuthViewModel @Inject constructor(
     fun addUser(userData: UserData) {
         viewModelScope.launch(Dispatchers.IO) {
             addUserUsecase(userData)
+            Log.e(TAG,"user added")
         }
     }
 

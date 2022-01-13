@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.tuwaiq.rr.R
+import com.tuwaiq.rr.data.repos.completed
 import com.tuwaiq.rr.databinding.SignupFragmentBinding
 import com.tuwaiq.rr.domain.models.UserData
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,14 +32,15 @@ class SignupFragment : Fragment() {
             val email = binding.emailInputEditText.text.toString()
             val password = binding.passwordInputEditText.text.toString()
             viewModel.signup(email, password)
-            val fullName = binding.nameInputEditText.text.toString()
-            val username = binding.usernameInputEditText.text.toString()
-            val userId = Firebase.auth.currentUser?.uid.toString()
-            val userData = UserData(fullName,username,userId)
-            viewModel.addUser(userData).also {
-                findNavController().navigate(R.id.action_signupFragment_to_homeFragment)
+            if (completed){
+                val fullName = binding.nameInputEditText.text.toString()
+                val username = binding.usernameInputEditText.text.toString()
+                val userId = Firebase.auth.currentUser?.uid.toString()
+                val userData = UserData(fullName,username,userId)
+                viewModel.addUser(userData).also {
+                    findNavController().navigate(R.id.action_signupFragment_to_homeFragment)
+                }
             }
-
         }
 
         binding.backBtn.setOnClickListener{
