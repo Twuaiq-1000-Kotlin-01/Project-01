@@ -47,6 +47,7 @@ class PostAdapter(private val postList: List<Post>) :
 					Log.d("PostAdapter", "downloadUrl: $it")
 					Glide.with(itemBinding.root.context)
 						.load(it)
+						.centerCrop()
 						.placeholder(R.drawable.baseline_crop_original_teal_700_24dp)
 						.error(R.drawable.twotone_error_red_800_24dp)
 						.into(itemBinding.imgviewPostImage)
