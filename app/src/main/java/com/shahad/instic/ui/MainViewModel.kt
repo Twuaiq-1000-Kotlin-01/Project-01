@@ -50,59 +50,62 @@ class MainViewModel : ViewModel() {
         }
     }
 
-	fun getComments(postId: String): MutableLiveData<List<Comment>> {
-		val liveCommentsList = MutableLiveData<List<Comment>>()
-		var commentList = mutableListOf<Comment>()
-		viewModelScope.launch {
-			withContext(Dispatchers.IO) {
-				post.document(postId).collection("comments").orderBy("date", Query.Direction.DESCENDING)
-					.addSnapshotListener(object : EventListener<QuerySnapshot> {
-						override fun onEvent(
-							value: QuerySnapshot?,
-							error: FirebaseFirestoreException?
-						) {
-							if (error != null) {
-								Log.e("getComments failed", error.message.toString())
-								return
-							}
-if (value!=null){
-							for (dc: DocumentChange in value.documentChanges) {
-								if (dc.type == DocumentChange.Type.ADDED) {
-									commentList.add(dc.document.toObject(Comment::class.java))
-								}
-							}
-							liveCommentsList.postValue(commentList)
-						}}
-					})
-			}
-		}
-		return liveCommentsList
-	}
+    fun getComments(postId: String): MutableLiveData<List<Comment>> {
+        val liveCommentsList = MutableLiveData<List<Comment>>()
+        var commentList = mutableListOf<Comment>()
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                post.document(postId).collection("comments")
+                    .orderBy("date", Query.Direction.DESCENDING)
+                    .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                        override fun onEvent(
+                            value: QuerySnapshot?,
+                            error: FirebaseFirestoreException?
+                        ) {
+                            if (error != null) {
+                                Log.e("getComments failed", error.message.toString())
+                                return
+                            }
+                            if (value != null) {
+                                for (dc: DocumentChange in value.documentChanges) {
+                                    if (dc.type == DocumentChange.Type.ADDED) {
+                                        commentList.add(dc.document.toObject(Comment::class.java))
+                                    }
+                                }
+                                liveCommentsList.postValue(commentList)
+                            }
+                        }
+                    })
+            }
+        }
+        return liveCommentsList
+    }
 
     fun newPost(content: String, imagePath: String?) = Completable.create { emitter ->
         val randomUuid = UUID.randomUUID().toString()
         val displayName = auth.currentUser!!.displayName.toString()
-        val postId=post.document().id
-        val post = Post(randomUuid, displayName, content, imagePath,postId)
+        val postId = post.document().id
+        val post = Post(randomUuid, displayName, content, imagePath, postId)
 
         val disposable = uploadImage(imagePath, randomUuid)
             .subscribe({
                 post.imagePath = it
                 viewModelScope.launch {
                     withContext(Dispatchers.IO) {
-                        this@MainViewModel.post.document(postId).set(post).addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                Log.i("MainViewModel", "newPost: success")
-                                emitter.onComplete()
-                            } else {
-                                emitter.onError(task.exception!!)
-                                Log.e(
-                                    "MainViewModel",
-                                    "newPost: ${task.exception!!.message}",
-                                    task.exception
-                                )
+                        this@MainViewModel.post.document(postId).set(post)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Log.i("MainViewModel", "newPost: success")
+                                    emitter.onComplete()
+                                } else {
+                                    emitter.onError(task.exception!!)
+                                    Log.e(
+                                        "MainViewModel",
+                                        "newPost: ${task.exception!!.message}",
+                                        task.exception
+                                    )
+                                }
                             }
-                        }
                     }
                 }
             }, {
@@ -139,7 +142,7 @@ if (value!=null){
 
     fun getPosts(): MutableLiveData<List<Post>> {
         val livePostsList = MutableLiveData<List<Post>>()
-         var postsList = mutableListOf<Post>()
+        var postsList = mutableListOf<Post>()
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 post.orderBy("date", Query.Direction.DESCENDING)

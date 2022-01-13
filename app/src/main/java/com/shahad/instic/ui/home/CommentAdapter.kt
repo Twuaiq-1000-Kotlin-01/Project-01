@@ -30,8 +30,8 @@ class CommentAdapter(private val commentList: List<Comment>) :
         fun bind(comment: Comment) {
             itemBinding.tvText.text = comment.text
             itemBinding.tvUsername.text = comment.username
-            itemBinding.imgviewComment.visibility=View.GONE
-            itemBinding.imgviewPostImage.visibility=View.GONE
+            itemBinding.imgviewComment.visibility = View.GONE
+            itemBinding.imgviewPostImage.visibility = View.GONE
 
         }
     }

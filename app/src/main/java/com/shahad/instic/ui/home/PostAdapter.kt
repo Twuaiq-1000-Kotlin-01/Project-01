@@ -1,12 +1,15 @@
 package com.shahad.instic.ui.home
 
+import android.app.Activity
 import android.app.Dialog
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
@@ -17,7 +20,7 @@ import com.shahad.instic.ui.model.Post
 
 class PostAdapter(
     private val postList: List<Post>,
-    private val mainActivity: MainActivity,
+    private val mainActivity: Activity,
     private val viewModel: MainViewModel
 ) :
     RecyclerView.Adapter<PostAdapter.ItemAdapter>() {
@@ -32,15 +35,15 @@ class PostAdapter(
         holder.bind(postList[position])
 
         holder.itemView.setOnClickListener {//change to whole item
-            Log.i("post adapter","post item clicked")
+            Log.i("post adapter", "post item clicked")
 
-
-           // activity.navigateTo(CommentFragment.newInstance(postList[position].postId))
-            mainActivity.navigateTo(CommentFragment.newInstance(postList[position].postId))
+            val intent = Intent(mainActivity, CommentFragment::class.java)
+            intent.putExtra(POST_ID, postList[position].postId)
+            startActivity(mainActivity, intent, null)
 
         }
         holder.itemBinding.imgviewComment.setOnClickListener {
-            Log.i("post adapter","comment img clicked")
+            Log.i("post adapter", "comment img clicked")
             val dialog = Dialog(mainActivity)
             dialog.setContentView(R.layout.dialog_comment)
 
@@ -52,8 +55,9 @@ class PostAdapter(
                 if (commentContent.text != null) {
                     viewModel.newComment(commentContent.text.toString(), postList[position].postId)
                     dialog.dismiss()
-                    mainActivity.navigateTo(CommentFragment.newInstance(postList[position].postId))
-
+                    val intent = Intent(mainActivity, CommentFragment::class.java)
+                    intent.putExtra(POST_ID, postList[position].postId)
+                    startActivity(mainActivity, intent, null)
 
                 }
             }
@@ -98,9 +102,6 @@ class PostAdapter(
                 .addOnFailureListener {
                     Log.e("ItemAdapter", "bind: ${it.cause} -> ${post.uid}")
                 }
-
-
-
         }
 
     }

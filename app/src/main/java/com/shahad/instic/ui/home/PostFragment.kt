@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.shahad.instic.databinding.FragmentPostBinding
 import com.shahad.instic.ui.MainViewModel
-import com.shahad.instic.utils.MediaLoader
 import com.shahad.instic.utils.initializeAlbumLib
 import com.yanzhenjie.album.Album
-import com.yanzhenjie.album.AlbumConfig
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -51,7 +49,7 @@ class PostFragment : Fragment() {
                 .start()
         }
 
-        binding.postButton.setOnClickListener {
+            binding.postButton.setOnClickListener {
             val content = binding.postContentEditText.text.toString()
             onPostInitiated()
 
