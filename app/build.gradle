@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.tuwaiq.rr"
-        minSdk 30
+        minSdk 29
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -96,5 +96,9 @@ dependencies {
     implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
 
     implementation 'androidx.fragment:fragment-ktx:1.4.0'
+
+    //nav_graph
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
 }

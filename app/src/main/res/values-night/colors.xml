@@ -5,12 +5,11 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="Primary">#FF000000</color>
-    <color name="Secondary">#FFFFFFFF</color>
-    <color name="green1">#1C5739</color>
-    <color name="green2">#37B173</color>
-    <color name="green3">#70BD6E</color>
-    <color name="green4">#8AD189</color>
-    <color name="gray">#7B7C7B</color>
+    <color name="Primary">#FFFFFFFF</color>
+    <color name="Secondary">#FF000000</color>
+    <color name="green1">#8AD189</color>
+    <color name="green2">#70BD6E</color>
+    <color name="green3">#37B173</color>
+    <color name="green4">#1C5739</color>
 
 </resources>
