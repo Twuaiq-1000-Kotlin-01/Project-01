@@ -84,7 +84,7 @@ class MainViewModel : ViewModel() {
 		val livePostsList = MutableLiveData<List<Post>>()
 		viewModelScope.launch {
 			withContext(Dispatchers.IO) {
-				collection.orderBy("date")
+				collection.orderBy("date", Query.Direction.DESCENDING)
 					.addSnapshotListener(object : EventListener<QuerySnapshot> {
 						override fun onEvent(
 							value: QuerySnapshot?,
